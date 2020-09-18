@@ -1,3 +1,5 @@
 Project Team Members:
-James Bond
+James Bohn
 Alexey Yermakov
+James Ryan
+Conor Simmons
