@@ -1,2 +1,2 @@
-Alexey S Yermakov
+Alexey Yermakov
 James Bohn
