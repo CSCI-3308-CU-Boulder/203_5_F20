@@ -1,5 +1,5 @@
+Project Team Members:
+James Bohn
 Alexey Yermakov
 James Ryan
-frig me
-James Bohn
 Conor Simmons
