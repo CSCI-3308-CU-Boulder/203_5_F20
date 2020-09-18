@@ -1,6 +1,8 @@
 Project Team Members:
 
+James Bohn
 Alexey Yermakov
 James Ryan
-frig me
-James Bohn
+Conor Simmons
+
+This is lab to practice using github -James
