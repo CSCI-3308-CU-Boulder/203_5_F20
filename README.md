@@ -1,4 +1,5 @@
 Project Team Members:
+Jake Tracy
 James Bohn
 Alexey Yermakov
 James Ryan
