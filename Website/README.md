@@ -1,0 +1,1 @@
+The purpose of the `Website` folder is to contain all of the files necessary to display on a browser.
