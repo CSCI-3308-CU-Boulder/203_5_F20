@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<script src="main.js"></script> 
+<body>
+
+    <img id="help-button" src="SVG/help-circle-outline.svg" alt="(?)" onclick="display_help()">
+    </img>
+
+    <!--Overlay content-->
+    <div id="help-overlay" onclick="hide_help()">
+        <div id="help-container">
+            Hello, this is some helpful text!:)
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+
+        <!--Main content-->
+        <div id="main-grid">
+            <div id="top-logo">
+                TTGames
+            </div>
+            <div id="user-input">
+                <form>
+                    <label for="Username">My name:</label></br>
+                    <input type="text" id="username-input" name="username-input" placeholder="Name..."></br>
+                    <label for="Game code">Game code:</label></br>
+                    <input type="text" id="game-code-input" name="game-code-input" placeholder="Code...">
+                    <label for="Submit button"></label></br>
+                    <input type="button" id="submit-button" name="submit-button" value="Submit">
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
