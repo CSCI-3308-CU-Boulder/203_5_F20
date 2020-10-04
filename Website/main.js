@@ -1,6 +1,6 @@
 // IP address of AWS server
 const IPADDR = '3.130.99.109';
-const PORT = '80';
+const PORT = '443';
 
 function display_help(){
     document.getElementById("help-overlay").style.display = "flex";
@@ -17,7 +17,7 @@ function submit_button(){
     console.log("Username: \"" + name + "\", code: \"" + code +"\"");
 
     // Establish websocket connection
-    var aWebSocket = new WebSocket('ws://' + IPADDR + ':' + PORT);
+    var aWebSocket = new WebSocket('wss://' + IPADDR + ':' + PORT);
 
     // Install event handlers
     aWebSocket.onclose = function(event) {
