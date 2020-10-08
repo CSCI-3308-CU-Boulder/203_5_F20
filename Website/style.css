@@ -13,7 +13,7 @@ body{
     justify-content: center;
 } 
 
-#main-grid{
+#login-page{
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 5em auto;
@@ -108,4 +108,28 @@ input[type=button]:active{
     border-radius: 2em;
     border: .1em solid black;
     padding: 2em;
+}
+
+#error-message{
+    color: #ff5d5d;
+    font-size: 2em;
+}
+
+#lobby-page{
+    display: none;
+    grid-template-columns: auto;
+    grid-template-rows: 5em auto;
+}
+
+#lobby-name{
+    font-size: 3em;
+    margin-top: 1em;
+}
+
+#lobby-players{
+    font-size: 2em;
+}
+
+.lobby-player{
+    padding-top: 0.5em;
 }
