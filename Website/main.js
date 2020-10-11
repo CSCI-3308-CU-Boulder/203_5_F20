@@ -32,6 +32,9 @@ function handleError(params){
     else if(errNum == 101){
         document.getElementById('error-message').innerHTML = "Error: Invalid Game ID";
     } 
+    else if(errNum == 102){
+        document.getElementById('error-message').innerHTML = "Error: Host Disconnected";
+    } 
     else {
         document.getElementById('error-message').innerHTML = "Error: Unknown error, Error Code: " + errNum;
     }
