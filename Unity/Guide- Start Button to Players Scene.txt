@@ -12,6 +12,6 @@ in blank object "Controller":
 
 in the button object's on click event:
 	select Controller on the left side
-	select sceneChange -> NextScene ()
+	select sceneChange -> NextScene () on the right side
 
 Build game with both scenes (i.e. both the start screen scene and the Players scene)	
