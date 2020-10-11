@@ -55,11 +55,15 @@ function connectionSuccess(params){
 
 function addNewClient(params){
     let name = params.username;
-    let code = params.gameCode;
 
     let players = document.getElementById('lobby-players');
     players.innerHTML += "<div class=\"lobby-player\" id=\"" + name + "\">" + name +"</div>";
 
+}
+
+function removeClient(params){
+    let name = params.username;
+    document.getElementById(name).outerHTML = "";
 }
 
 function submit_button(){
@@ -79,7 +83,6 @@ function submit_button(){
         if(document.getElementById("login-page").style.display == "none"){
             document.getElementById('lobby-page').style.display = "none";
             document.getElementById('login-page').style.display = "grid";
-            document.getElementById('error-message').innerHTML = "Error: Connection closed";
             document.getElementById('lobby-players').innerHTML = "";
             lobbyID = "";
         }
@@ -106,15 +109,21 @@ function submit_button(){
 
         let json = JSON.parse(event.data);
 
+        // Error
         if(json.type == -1){
             handleError(json.params);
         }
+        // Successful connection
         else if(json.type == 1){
             connectionSuccess(json.params);
         }
         // THE FOLLOWING IS FOR THE DEMO TO SHOW CONNECTED CLIENTS ON WEB APP
         else if(json.type == 2){
             addNewClient(json.params);
+        }
+        // Other client in lobby disconnects
+        else if(json.type == 3){
+            removeClient(json.params);
         }
         
     };

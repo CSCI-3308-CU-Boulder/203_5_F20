@@ -14,3 +14,7 @@ Errors Received By Client (100s):
     101:
         Occurs when client tries to connect to a gameID that does not exist
 
+    102:
+        Host closed connection
+
+Errors Received By Server (200s):

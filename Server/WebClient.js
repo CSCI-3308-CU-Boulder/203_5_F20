@@ -6,22 +6,20 @@ class WebClient {
         this.host = hostObj;
         this.name = name;
         
+        // Install handler for when server receives a message from the client
         this.ws.addEventListener('message', this.receiveMessage);
 
-        // For some reason, when the close function is called, the Host Obj is
-        // undefined which prevents us from telling the host to remove us from
-        // thier list
-        //this.ws.addEventListener('close', this.clientClose);
+        // Tell the host object that this client is disconnecting on close
+        let tempClient = this;
+        this.ws.on('close', function closed(code, reason) {
+            hostObj.removeClient(tempClient);
+        });
     }
 
     receiveMessage(messageObject){
         let realData = JSON.parse(messageObject.data);
         console.log("Data from Client: ", realData);
         //this.host.send(realData);
-    }
-
-    clientClose(){
-        this.host.removeClient(this);
     }
 }
 

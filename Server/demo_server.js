@@ -1,3 +1,23 @@
+// Map for correlating game Code's to host objects
+// Format: String: gameCode => UnityHost: host object
+// 123 is a dummy value for testing, the value can also be changed to
+// whatever else is appropriate (ie. host websocket connections)
+var codeToHost = new Map();
+
+// Remove a host from the map when it's connection is closed by its game code
+function removeHostByCode(code){
+    codeToHost.delete(code);
+}
+
+// Helper function to generate JSON errors based on error number
+function generateErrorMessage(err){
+    return {type: -1, params: {errNum: err}};
+}
+
+// Define the prior functions and export to module so that the Host import has
+// access to the above functions
+module.exports = { removeHostByCode, generateErrorMessage };
+
 // Equivalent to #include <foo>
 const fs = require('fs');
 const https = require('https');
@@ -5,17 +25,6 @@ const WebSocket = require('ws');
 const crypto = require('crypto');
 const WebClient = require('./WebClient');
 const UnityHost = require('./UnityHost');
-
-// Map for correlating game Code's to host objects
-// Format: String: gameCode => UnityHost: host object
-// 123 is a dummy value for testing, the value can also be changed to
-// whatever else is appropriate (ie. host websocket connections)
-var codeToHost = new Map();
-
-
-//let dummyCode = "123";
-//var dummyHost= new UnityHost("This is a websocket", dummyCode)
-//codeToHost.set(dummyCode, dummyHost);
 
 // Generate unique game codes
 // Create a random 4 digit (2 byte) hex string and makes sure it isn't used
@@ -25,10 +34,6 @@ function generateUniqueCode(){
         code = crypto.randomBytes(2).toString('hex');
     }
 	return code;
-}
-
-function generateErrorMessage(err){
-    return {type: -1, params: {errNum: err}};
 }
 
 // SSL cert info for https
@@ -57,7 +62,7 @@ wss.on('connection', function connection(ws, req) {
     // Creates object to hold the socket info and install a new handler
 	ws.addEventListener('message', function incoming(event) {
         let json = JSON.parse(event.data);
-		console.log('Received new connection with type: %s', json.type);
+		console.log('Initialization message received with type: %s', json.type);
 
         // Intialize client
         if(json.type == 1){
@@ -91,6 +96,7 @@ wss.on('connection', function connection(ws, req) {
         // Intialize host
         else if(json.type == 2){
             let code = generateUniqueCode();
+            
             host = new UnityHost(ws, code);
             codeToHost.set(code,host);
 
@@ -120,5 +126,7 @@ wss.on('connection', function connection(ws, req) {
 });
 
 // Allow the server to accept new connections over port 8000
+// Original value for AWS server was 443
 server.listen(8000);
 console.log("Server Info: ", server.address());
+

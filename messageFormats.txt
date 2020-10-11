@@ -22,5 +22,16 @@ Inialize Client / Set Username
 
 Intialize Host
 {
-    "type": 2
+    "type": 2,
+    "params": {
+        "username": USERNAME
+    }
+}
+
+Client Disconnect
+{
+    "type": 3,
+    "params": {
+        "username": USERNAME
+    }
 }
