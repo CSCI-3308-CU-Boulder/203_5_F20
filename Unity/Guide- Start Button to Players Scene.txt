@@ -1,0 +1,17 @@
+in blank object "Controller":
+	Drag in script "sceneChange.cs" with the following code:
+		using UnityEngine;
+		using UnityEngine.SceneManagement;
+
+		public class sceneChange : MonoBehaviour{
+    			public void NextScene()
+    			{
+        			SceneManager.LoadScene("Players");
+    			}
+		}
+
+in the button object's on click event:
+	select Controller on the left side
+	select sceneChange -> NextScene ()
+
+Build game with both scenes (i.e. both the start screen scene and the Players scene)	
