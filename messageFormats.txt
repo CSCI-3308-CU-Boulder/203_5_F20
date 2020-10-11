@@ -1,0 +1,26 @@
+Error Message
+{
+    "type": -1,
+    "params": {
+        "errNum": ERROR_NUMBER
+    }
+}
+
+Blank
+{
+    "type": 0
+}
+
+Inialize Client / Set Username
+{
+    "type": 1,
+    "params": {
+        "gameCode": CODE,
+        "username": USERNAME
+    }
+}
+
+Intialize Host
+{
+    "type": 2
+}

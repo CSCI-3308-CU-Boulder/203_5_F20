@@ -1,0 +1,16 @@
+General Errors (000s):
+    001:
+        Occurs when the server's intially received message is not classified
+        as an intialization message for either a WebClient or UnityHost.
+
+        This is either due to a code error (client or host sending first 
+        message with wrong type) or someone being malicious.
+
+Errors Received By Client (100s):
+
+    100:
+        Occurs when client inputs empty fields when they should not be empty
+
+    101:
+        Occurs when client tries to connect to a gameID that does not exist
+
