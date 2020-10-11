@@ -24,7 +24,7 @@ Intialize Host
 {
     "type": 2,
     "params": {
-        "username": USERNAME
+        "gameCode": CODE
     }
 }
 
