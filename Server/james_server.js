@@ -94,6 +94,9 @@ wss.on('connection', function connection(ws, req) {
             host = new UnityHost(ws, code);
             codeToHost.set(code,host);
 
+            let message = {type: 2, params: {gameCode: code}};
+            ws.send(JSON.stringify(message));
+
             console.log("Created new host with game code: ", code);
         }
         else{
