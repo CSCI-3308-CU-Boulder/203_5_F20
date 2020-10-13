@@ -24,29 +24,27 @@ public class ServerConnect : MonoBehaviour
     public string Listen(){
       var q = client.inQueue;
       string message;
-      Debug.Log("we here");
 
       //read from queue here
       while(q.TryPeek(out message)){
         q.TryDequeue(out message);
+        Debug.Log("Received: " + message);
+        return message;
       }
-      Debug.Log("Received: " + message);
-      return message;
+      return "error";
     }
 
     public void RequestCode(){
-      Message m = new Message(2, "", "");
+      Message m = new Message(2, "123", "conor", 3);
       string json_message = m.JsonConvert();
       Debug.Log(json_message);
       client.SendMessage(json_message);
     }
 
-    public string GetCode(){
+    public void GetCode(){
+      string code = Listen();
       Message m;
-      string code;
-      code = Listen();
       m = JsonUtility.FromJson<Message>(code);
-      Debug.Log("Code is " + m.gameCode);
-      return m.gameCode;
+      Debug.Log(m.gameCode);
     }
 }
