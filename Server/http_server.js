@@ -1,10 +1,8 @@
-// Map for correlating game Code's to host objects
+// Map for correlating game codes to host objects
 // Format: String: gameCode => UnityHost: host object
-// 123 is a dummy value for testing, the value can also be changed to
-// whatever else is appropriate (ie. host websocket connections)
 var codeToHost = new Map();
 
-// Remove a host from the map when it's connection is closed by its game code
+// Remove a host from the map when its connection is closed by its game code
 function removeHostByCode(code){
     codeToHost.delete(code);
 }
@@ -54,7 +52,7 @@ const server = http.createServer(function(request, response) {
 // Web socket server created for the server
 const wss = new WebSocket.Server({ server });
 
-// Install handler for a new socket (ws) connecting to the wever
+// Install handler for a new socket (ws) connecting to the server
 wss.on('connection', function connection(ws, req) {
 	console.log("Established connection with IP " + req.socket.remoteAddress);
 
@@ -111,6 +109,7 @@ wss.on('connection', function connection(ws, req) {
             console.log("General Error: Attempted non-initialization comm");
             let message = generateErrorMessage(001);
             ws.send(JSON.stringify(message));
+            ws.terminate();
         }
 
     // This is very VERY important. This handler will only ever run once, on

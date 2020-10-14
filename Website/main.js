@@ -1,6 +1,6 @@
 // IP address of AWS server
-const IPADDR = 'localhost';
-const PORT = '8000';
+const IPADDR = '3.130.99.109';
+const PORT = '80';
 var lobbyID = "";
 var username = "";
 
@@ -12,12 +12,6 @@ function display_help(){
 
 function hide_help(){
     document.getElementById("help-overlay").style.display = "none";
-}
-
-function test(){
-    console.log("test");
-    testMessage = {type: 0, string: "Did this work?"}
-    aWebSocket.send(JSON.stringify(testMessage));
 }
 
 function handleError(params){
@@ -76,7 +70,7 @@ function submit_button(){
     console.log("Username: \"" + name + "\", gameCode: \"" + code +"\"");
 
     // Establish websocket connection
-    aWebSocket = new WebSocket('wss://' + IPADDR + ':' + PORT);
+    aWebSocket = new WebSocket('ws://' + IPADDR + ':' + PORT);
 
     // Install event handlers
     aWebSocket.onclose = function(event) {

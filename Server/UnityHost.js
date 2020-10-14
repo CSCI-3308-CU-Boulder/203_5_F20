@@ -1,4 +1,4 @@
-const NAME_OF_SERVER_FILE = 'demo_server'
+const NAME_OF_SERVER_FILE = 'http_server'
 
 const WebSocket = require('ws');
 const Server= require('./' + NAME_OF_SERVER_FILE);
