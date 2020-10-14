@@ -106,7 +106,15 @@ public class UnityClient
       message = await ReceiveMessage();
       Debug.Log("other function: " + message);
       if (message != null && message.Length > 0){
+        //check for type 1 message
+        bool newPlayer = false;
+        string check = "";
+        Message m = new Message();
+        m = JsonUtility.FromJson<Message>(message);
         inQueue.Enqueue(message);
+        if (m.type == 1){
+          //call function somewhere else to add a new player
+        }
       }
       else{
         Task.Delay(50).Wait();
