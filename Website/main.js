@@ -35,7 +35,7 @@ function handleError(json){
     }
 }
 
-function connectionSuccess(json){
+function clientConnect(json){
     let name = json.username;
     let code = json.gameCode;
 
@@ -55,12 +55,18 @@ function connectionSuccess(json){
 
 }
 
-function addNewClient(json){
-    let name = json.username;
+function serverConnect(json){
+    let code = json.gameCode;
 
-    let players = document.getElementById('lobby-players');
-    players.innerHTML += "<div class=\"lobby-player\" id=\"" + name + "\">" + name +"</div>";
+    lobbyID = code;
 
+    if(!connected){
+        document.getElementById('lobby-page').style.display = "grid";
+        document.getElementById('login-page').style.display = "none";
+        document.getElementById('error-message').innerHTML = "";
+        document.getElementById('lobby-id').innerHTML = lobbyID;
+        connected = true;
+    }
 }
 
 function removeClient(json){
@@ -118,11 +124,11 @@ function submit_button(){
         }
         // Successful connection
         else if(json.type == 1){
-            connectionSuccess(json);
+            clientConnect(json);
         }
         // THE FOLLOWING IS FOR THE DEMO TO SHOW CONNECTED CLIENTS ON WEB APP
         else if(json.type == 2){
-            addNewClient(json);
+            serverConnect(json);
         }
         // Other client in lobby disconnects
         else if(json.type == 3){
