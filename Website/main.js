@@ -14,8 +14,8 @@ function hide_help(){
     document.getElementById("help-overlay").style.display = "none";
 }
 
-function handleError(params){
-    let errNum = params.errNum;
+function handleError(json){
+    let errNum = json.errNum;
 
     if(errNum == 001){
         document.getElementById('error-message').innerHTML = "Error: Non-initialization comm sent";
@@ -34,9 +34,9 @@ function handleError(params){
     }
 }
 
-function connectionSuccess(params){
-    let name = params.username;
-    let code = params.gameCode;
+function connectionSuccess(json){
+    let name = json.username;
+    let code = json.gameCode;
 
     lobbyID = code;
     username = name;
@@ -50,16 +50,16 @@ function connectionSuccess(params){
 
 }
 
-function addNewClient(params){
-    let name = params.username;
+function addNewClient(json){
+    let name = json.username;
 
     let players = document.getElementById('lobby-players');
     players.innerHTML += "<div class=\"lobby-player\" id=\"" + name + "\">" + name +"</div>";
 
 }
 
-function removeClient(params){
-    let name = params.username;
+function removeClient(json){
+    let name = json.username;
     document.getElementById(name).outerHTML = "";
 }
 
@@ -91,12 +91,12 @@ function submit_button(){
         // THIS IS CODE TO FAKE BEING A SERVER SO WE DON'T NEED UNITY YET
         // =====================================================================
         if(code === "servertest"){
-            let message = {type: 2, params: {gameCode: code, username: name}}
+            let message = {type: 2, gameCode: code, username: name}
             aWebSocket.send(JSON.stringify(message));
             return;
         }
         // =====================================================================
-        let message = {type: 1, params: {gameCode: code, username: name}}
+        let message = {type: 1, gameCode: code, username: name}
         aWebSocket.send(JSON.stringify(message));
     };
 
@@ -108,19 +108,19 @@ function submit_button(){
 
         // Error
         if(json.type == -1){
-            handleError(json.params);
+            handleError(json);
         }
         // Successful connection
         else if(json.type == 1){
-            connectionSuccess(json.params);
+            connectionSuccess(json);
         }
         // THE FOLLOWING IS FOR THE DEMO TO SHOW CONNECTED CLIENTS ON WEB APP
         else if(json.type == 2){
-            addNewClient(json.params);
+            addNewClient(json);
         }
         // Other client in lobby disconnects
         else if(json.type == 3){
-            removeClient(json.params);
+            removeClient(json);
         }
         
     };
