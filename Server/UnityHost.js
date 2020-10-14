@@ -46,10 +46,10 @@ class UnityHost {
         // NEED TO KNOW ABOUT EACH OTHER
         // =====================================================================
         this.clients.forEach(oldClient => {
-            let oldMessage = {type: 2, username: newClient.name};
+            let oldMessage = {type: 1, username: newClient.name};
             oldClient.ws.send(JSON.stringify(oldMessage))
 
-            let newMessage = {type: 2, username: oldClient.name};
+            let newMessage = {type: 1, username: oldClient.name};
             newClient.ws.send(JSON.stringify(newMessage));
         }); 
         // =====================================================================

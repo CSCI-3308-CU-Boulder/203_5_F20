@@ -3,6 +3,7 @@ const IPADDR = '3.130.99.109';
 const PORT = '80';
 var lobbyID = "";
 var username = "";
+var connected = false;
 
 var aWebSocket;
 
@@ -40,10 +41,14 @@ function connectionSuccess(json){
 
     lobbyID = code;
     username = name;
-    document.getElementById('lobby-page').style.display = "grid";
-    document.getElementById('login-page').style.display = "none";
-    document.getElementById('error-message').innerHTML = "";
-    document.getElementById('lobby-id').innerHTML = lobbyID;
+
+    if(!connected){
+        document.getElementById('lobby-page').style.display = "grid";
+        document.getElementById('login-page').style.display = "none";
+        document.getElementById('error-message').innerHTML = "";
+        document.getElementById('lobby-id').innerHTML = lobbyID;
+        connected = true;
+    }
 
     let players = document.getElementById('lobby-players');
     players.innerHTML += "<div class=\"lobby-player\" id=\"" + name + "\">" + name +"</div>";
@@ -82,6 +87,7 @@ function submit_button(){
             document.getElementById('login-page').style.display = "grid";
             document.getElementById('lobby-players').innerHTML = "";
             lobbyID = "";
+            connected = false;
         }
     };
 
