@@ -11,7 +11,7 @@ function removeHostByCode(code){
 
 // Helper function to generate JSON errors based on error number
 function generateErrorMessage(err){
-    return {type: -1, params: {errNum: err}};
+    return {type: -1, errNum: err};
 }
 
 // Define the prior functions and export to module so that the Host import has
@@ -67,8 +67,8 @@ wss.on('connection', function connection(ws, req) {
         // Intialize client
         if(json.type == 1){
 
-            let code = json.params.gameCode;
-            let name = json.params.username;
+            let code = json.gameCode;
+            let name = json.username;
 
             // One or more inital client inputs is empty
             if(code == "" || name == ""){
@@ -80,7 +80,7 @@ wss.on('connection', function connection(ws, req) {
             // Game code belongs to a host
             else if(codeToHost.has(code)){
                 console.log("Valid Game code from client. Creating WebClient class");
-                let message = {type: 1, params: {gameCode: code, username: name}};
+                let message = {type: 1, gameCode: code, username: name};
                 ws.send(JSON.stringify(message));
                 client = new WebClient(ws, codeToHost.get(code), name);
                 codeToHost.get(code).addClient(client);
@@ -100,7 +100,7 @@ wss.on('connection', function connection(ws, req) {
             host = new UnityHost(ws, code);
             codeToHost.set(code,host);
 
-            let message = {type: 2, params: {gameCode: code}};
+            let message = {type: 2, gameCode: code};
             ws.send(JSON.stringify(message));
 
             console.log("Created new host with game code: ", code);
