@@ -1,9 +1,7 @@
 Error Message
 {
     "type": -1,
-    "params": {
-        "errNum": ERROR_NUMBER
-    }
+    "errNum": ERROR_NUMBER
 }
 
 Blank
@@ -14,24 +12,18 @@ Blank
 Inialize Client / Set Username
 {
     "type": 1,
-    "params": {
-        "gameCode": CODE,
-        "username": USERNAME
-    }
+    "gameCode": CODE,
+    "username": USERNAME
 }
 
 Intialize Host
 {
     "type": 2,
-    "params": {
-        "gameCode": CODE
-    }
+    "gameCode": CODE
 }
 
 Client Disconnect
 {
     "type": 3,
-    "params": {
-        "username": USERNAME
-    }
+    "username": USERNAME
 }
