@@ -19,62 +19,61 @@ public class ServerConnect : MonoBehaviour
     public string holder = "Waiting For ID";
     public int amountOfPlayers = 0;
     bool haveID = false;
+
     // Start is called before the first frame update
     void Start()
     {
         setID.text = holder;
         serverIDtxt.GetComponent<Text>().text = holder;
         client = new UnityClient(address);
-        connect();
+        await client.Connect();
         RequestCode();
         Debug.Log("should be game code:" + holder);
-        
+
     }
     public bool hasGameCode = false;
-    void Update()
-    {
-        
-        if (hasGameCode == false)
-        {
-            holder = GetCode();
-            setID.text = holder;
-            serverIDtxt.GetComponent<Text>().text = holder;
-            hasGameCode = true;
-        }
-        //Listen();
-    }
-    // Update is called once per frame
-    public async void connect()
-    {
-        await client.Connect();
-    }
 
-    public void SendJSON(string json)
-    {
-        client.SendMessage(json);
-    }
-    public string Listen()
+    //this is called in every frame of the game
+    void Update()
     {
         var q = client.inQueue;
         string message;
 
         //read from queue here
-        while (q.TryPeek(out message))
-        {
-            q.TryDequeue(out message);
-            Debug.Log("Received: " + message);
-            return message;
+        while(q.TryPeek(out message)){
+          q.TryDequeue(out message);
+          Debug.Log("Received: " + message);
+
+          Message m = new Message(-1, "", "", -1);
+          Debug.Log(m.type);
+          m = JsonUtility.FromJson<Message>(message);
+
+          //logic for creating new game lobby
+          if (m.type == 2){
+            Debug.Log(m.gameCode);
+          }
+
+          //logic for adding a player
+          else if (m.type == 1){
+            Debug.Log(m.userName);
+          }
+
+          //error case
+          else{
+            Debug.Log("Error in type");
+          }
+
+          client.RestartThread(); //this restarts the thread that listens for incoming messages
         }
-        return "error";
     }
-    public string GetCode()
+
+    //this is used to send data to the server
+    public void SendJSON(string json)
     {
-        string code = Listen();
-        Message m;
-        m = JsonUtility.FromJson<Message>(code);
-        Debug.Log(m.gameCode);
-        return m.gameCode;
+        client.SendMessage(json);
     }
+
+    //this is used to start a game and retrieve a unique game code
     public void RequestCode()
     {
         Message m = new Message(2, "123", "conor", 3);
@@ -82,9 +81,4 @@ public class ServerConnect : MonoBehaviour
         Debug.Log(json_message);
         client.SendMessage(json_message);
     }
-
-    public void GetName()
-    {
-    }
-
 }

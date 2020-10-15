@@ -20,7 +20,7 @@ public class UnityClient
     public ConcurrentQueue<String> inQueue { get; }
 
     private Thread outThread { get; set; }
-    public Thread inThread { get; set; }
+    private Thread inThread { get; set; }
 
     //constructor
     public UnityClient(string serverAddress)
@@ -115,7 +115,7 @@ public class UnityClient
     }
 
     //thread for receiving messages
-    public async void MessageIn()
+    private async void MessageIn()
     {
         int i = 0;
         UnityEngine.Debug.Log(i);
@@ -125,13 +125,16 @@ public class UnityClient
         UnityEngine.Debug.Log("other function: " + message);
         if (message != null && message.Length > 0)
         {
-            //check for type 1 message
-
             inQueue.Enqueue(message);
         }
         else
         {
             Task.Delay(50).Wait();
         }
+    }
+
+    public void RestartThread(){
+        inThread = new Thread(MessageIn);
+        inThread.Start();
     }
 }
