@@ -150,18 +150,18 @@ input[type=button]:active{
     color: white;
     text-decoration: none;
     border: none;
-    border-radius: 0px;
+    border-radius: .3em;
     margin-top: .2em;
     margin-bottom: .2em;
     cursor: pointer;
 }
 
 .game-button:hover{
-    border-radius: .3em;
+    border-radius: .6em;
 }
 
 .game-button:active{
-    border-radius: .6em;
+    border-radius: .9em;
 }
 
 @media only screen and (max-width: 600px) {
