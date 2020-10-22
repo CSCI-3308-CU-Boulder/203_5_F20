@@ -121,26 +121,64 @@ input[type=button]:active{
     grid-template-rows: 5em auto;
 }
 
-#lobby-name{
-    font-size: 3em;
-    margin-top: 1em;
-}
-
-#lobby-players{
-    font-size: 2em;
+#lobby-info, #game-username{
+    font-size: 2.5em;
+    padding-bottom: 0em;
 }
 
 .lobby-player{
     padding-top: 0.5em;
 }
 
+#game-page{
+    display: none;
+    grid-template-columns: auto;
+    grid-template-rows: 5em auto;
+}
+
+#game-info, #game-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.game-button{
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    font-size: 2em;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 0px;
+    margin-top: .2em;
+    margin-bottom: .2em;
+    cursor: pointer;
+}
+
+.game-button:hover{
+    border-radius: .3em;
+}
+
+.game-button:active{
+    border-radius: .6em;
+}
+
 @media only screen and (max-width: 600px) {
+    .lobby-player{
+        padding-top: 0em;
+    }
+
+    #lobby-info, #game-username{
+        font-size: 2.2em;
+        padding-bottom: 0.5em;
+    }
 
     #user-input{
         font-size: 2.5em;
     }
 
-    input[type=text], #lobby-info{
+    input[type=text]{
         font-size: .5em;
     }
 
@@ -150,11 +188,20 @@ input[type=button]:active{
 }
 
 @media only screen and (max-width: 400px) {
+    .lobby-player{
+        padding-top: 0em;
+    }
+
+    #lobby-info, #game-username{
+        font-size: 1.9em;
+        padding-bottom: 0.5em;
+    }
+
     #user-input{
         font-size: 2.1em;
     }
 
-    input[type=text], #lobby-info{
+    input[type=text]{
         font-size: .4em;
     }
 
@@ -164,11 +211,20 @@ input[type=button]:active{
 }
 
 @media only screen and (max-width: 300px) {
+    .lobby-player{
+        padding-top: 0em;
+    }
+
+    #lobby-info, #game-username{
+        font-size: 1.6em;
+        padding-bottom: 0.5em;
+    }
+
     #user-input{
         font-size: 1.8em;
     }
 
-    input[type=text], #lobby-info{
+    input[type=text]{
         font-size: .4em;
     }
 
