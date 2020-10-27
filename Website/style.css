@@ -164,6 +164,25 @@ input[type=button]:active{
     border-radius: .9em;
 }
 
+.waiting{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+#server-send{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+#waiting-gif{
+    width: 10em;
+    margin: 0 auto 0 auto;
+}
+
 @media only screen and (max-width: 600px) {
     .lobby-player{
         padding-top: 0em;
@@ -184,6 +203,10 @@ input[type=button]:active{
 
     #top-logo{
         font-size: 3em;
+    }
+
+    .waiting{
+        display: none;
     }
 }
 

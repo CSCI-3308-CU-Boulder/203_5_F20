@@ -1,9 +1,10 @@
 // IP address of AWS server
 const IPADDR = '3.130.99.109';
-const PORT = '80';
+const PORT = '443';
 var lobbyID = "";
 var username = "";
 var connected = false;
+var server = false;
 
 var aWebSocket;
 
@@ -95,7 +96,14 @@ function submit_button(){
             document.getElementById('lobby-page').style.display = "none";
             document.getElementById('login-page').style.display = "grid";
             document.getElementById('lobby-players').innerHTML = "";
+            document.getElementById('error-message').innerHTML = "Websocket closed";
             lobbyID = "";
+            
+            // Get rid of fake server input
+            if(server){
+                server = false;
+                document.getElementById('server-send').style.display = "none";
+            }
             connected = false;
         }
     };
@@ -106,6 +114,8 @@ function submit_button(){
         // THIS IS CODE TO FAKE BEING A SERVER SO WE DON'T NEED UNITY YET
         // =====================================================================
         if(code === "servertest"){
+            server = true;
+            document.getElementById('server-send').style.display = "flex";
             let message = {type: 2, gameCode: code, username: name}
             aWebSocket.send(JSON.stringify(message));
             return;
@@ -142,3 +152,9 @@ function submit_button(){
 
 }
 
+function server_send(){
+    let input = document.getElementById("server-input").value;
+    let message = {data: input}
+    console.log("Sending " + input);
+    aWebSocket.send(JSON.stringify(message));
+}
