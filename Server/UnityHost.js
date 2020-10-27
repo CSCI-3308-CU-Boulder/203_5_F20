@@ -16,14 +16,14 @@ class UnityHost {
             let realData = JSON.parse(messageObject.data);
             
             tempHost.clients.forEach(client => {
-                client.ws.send(realData);
+                client.ws.send(messageObject.data);
             }); 
         });
 
         // When host connection closes, close all client connections and remove
         // host from the map in the server
         this.ws.on('close', function closed(code, reason) {
-            console.log("Host "+ tempHost.code + "connection terminated. Terminating client connections.")
+            console.log("Host "+ tempHost.code + " connection terminated. Terminating client connections.")
             tempHost.clients.forEach(client => {
                 let message = Server.generateErrorMessage(102);
                 client.ws.send(JSON.stringify(message));
@@ -66,10 +66,14 @@ class UnityHost {
 
     // Check if a host already has a client with a given name
     checkDuplicateUsername(name){
+        let ret = false;
         this.clients.forEach(client => {
-            if(client.name == name) return true;
+            if(client.name === name){
+                ret = true;
+                return;
+            }   
         }); 
-        return false;
+        return ret;
     }
 
     // Called by a client on close

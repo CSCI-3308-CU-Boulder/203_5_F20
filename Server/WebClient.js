@@ -12,7 +12,7 @@ class WebClient {
         this.ws.addEventListener('message', function(messageObject){
             let realData = JSON.parse(messageObject.data);
             //console.log("Data from Client: ", realData);
-            this.host.send(realData);
+            this.host.send(messageObject.data);
         });
 
         // Tell the host object that this client is disconnecting on close  
