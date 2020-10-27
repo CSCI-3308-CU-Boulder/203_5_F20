@@ -44,10 +44,19 @@
                 TTGames
             </div>
             <div id="lobby-info">
+                <div id="server-send">
+                    <input type="text" id="server-input">
+                    <button type="button" id="server-button" onclick="server_send()">Send</button> 
+                </div>
                 <div id="lobby-name">
                     Connected to lobby <span id="lobby-id">0xID</span>:
                 </div>
                 <div id="lobby-players">
+                </div>
+                <hr class="waiting">
+                <div class="waiting">
+                    Waiting for game to start
+                    <img src="GIF/hot_dog.gif" id="waiting-gif">
                 </div>
             </div>
         </div>
