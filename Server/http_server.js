@@ -78,11 +78,23 @@ wss.on('connection', function connection(ws, req) {
             }
             // Game code belongs to a host
             else if(codeToHost.has(code)){
-                console.log("Valid Game code from client. Creating WebClient class");
-                let message = {type: 1, gameCode: code, username: name};
-                ws.send(JSON.stringify(message));
-                client = new WebClient(ws, codeToHost.get(code), name);
-                codeToHost.get(code).addClient(client);
+
+                // Check if username is used by the host already
+                if(codeToHost.get(code).checkDuplicateUsername(name)){
+                    console.log("Client Error: Username taken");
+                    let message = generateErrorMessage(103);
+                    ws.send(JSON.stringify(message));
+                    ws.terminate();
+                }
+                // Successfully create new client, notify the client, and attach
+                // it to the host.
+                else{
+                    console.log("Creating new client: ", name);
+                    let message = {type: 1, gameCode: code, username: name};
+                    ws.send(JSON.stringify(message));
+                    client = new WebClient(ws, codeToHost.get(code), name);
+                    codeToHost.get(code).addClient(client);
+                }
             }
             // Game code does not exist
             else {
