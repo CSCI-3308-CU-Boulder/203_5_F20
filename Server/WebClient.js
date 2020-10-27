@@ -18,8 +18,8 @@ class WebClient {
 
     receiveMessage(messageObject){
         let realData = JSON.parse(messageObject.data);
-        console.log("Data from Client: ", realData);
-        //this.host.send(realData);
+        //console.log("Data from Client: ", realData);
+        this.host.send(realData);
     }
 }
 

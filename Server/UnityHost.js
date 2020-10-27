@@ -87,8 +87,11 @@ class UnityHost {
 
     receiveMessage(messageObject){
         let realData = JSON.parse(messageObject.data);
-        console.log("Data from Host: ", realData);
-        //this.host.send(realData);
+        //console.log("Data from Host: ", realData);
+        
+        this.clients.forEach(client => {
+            client.ws.send(realData);
+        }); 
     }
 }
 
