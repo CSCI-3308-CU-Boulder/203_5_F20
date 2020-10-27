@@ -5,21 +5,20 @@ class WebClient {
         this.ws = clientWS;
         this.host = hostObj;
         this.name = name;
-        
-        // Install handler for when server receives a message from the client
-        this.ws.addEventListener('message', this.receiveMessage);
 
-        // Tell the host object that this client is disconnecting on close
         let tempClient = this;
+        
+        // Forward messages from clients to hosts
+        this.ws.addEventListener('message', function(messageObject){
+            let realData = JSON.parse(messageObject.data);
+            //console.log("Data from Client: ", realData);
+            this.host.send(realData);
+        });
+
+        // Tell the host object that this client is disconnecting on close  
         this.ws.on('close', function closed(code, reason) {
             hostObj.removeClient(tempClient);
         });
-    }
-
-    receiveMessage(messageObject){
-        let realData = JSON.parse(messageObject.data);
-        //console.log("Data from Client: ", realData);
-        this.host.send(realData);
     }
 }
 

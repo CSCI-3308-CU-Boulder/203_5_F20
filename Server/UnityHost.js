@@ -9,12 +9,19 @@ class UnityHost {
         this.code = code;
         this.clients = [];
 
-        // Install handler for when the server receives a message from host
-        this.ws.addEventListener('message', this.receiveMessage);
+        let tempHost = this;
+
+        // Forward subsequent messages to clients
+        this.ws.addEventListener('message', function(messageObject){
+            let realData = JSON.parse(messageObject.data);
+            
+            tempHost.clients.forEach(client => {
+                client.ws.send(realData);
+            }); 
+        });
 
         // When host connection closes, close all client connections and remove
         // host from the map in the server
-        let tempHost = this;
         this.ws.on('close', function closed(code, reason) {
             console.log("Host "+ tempHost.code + "connection terminated. Terminating client connections.")
             tempHost.clients.forEach(client => {
@@ -83,15 +90,6 @@ class UnityHost {
             client.ws.send(JSON.stringify(message))
         }); 
         // =====================================================================
-    }
-
-    receiveMessage(messageObject){
-        let realData = JSON.parse(messageObject.data);
-        //console.log("Data from Host: ", realData);
-        
-        this.clients.forEach(client => {
-            client.ws.send(realData);
-        }); 
     }
 }
 
