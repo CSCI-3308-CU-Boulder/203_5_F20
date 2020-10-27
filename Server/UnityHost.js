@@ -57,6 +57,14 @@ class UnityHost {
         this.clients.push(newClient);
     }
 
+    // Check if a host already has a client with a given name
+    checkDuplicateUsername(name){
+        this.clients.forEach(client => {
+            if(client.name == name) return true;
+        }); 
+        return false;
+    }
+
     // Called by a client on close
     // Remove the client from the host's list and tell the host directly.
     // For the demo, tell each other client that the calling client disconnected
@@ -79,8 +87,11 @@ class UnityHost {
 
     receiveMessage(messageObject){
         let realData = JSON.parse(messageObject.data);
-        console.log("Data from Host: ", realData);
-        //this.host.send(realData);
+        //console.log("Data from Host: ", realData);
+        
+        this.clients.forEach(client => {
+            client.ws.send(realData);
+        }); 
     }
 }
 

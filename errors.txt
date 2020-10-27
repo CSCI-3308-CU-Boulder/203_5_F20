@@ -17,4 +17,7 @@ Errors Received By Client (100s):
     102:
         Host closed connection
 
-Errors Received By Server (200s):
+    103:
+        Duplicate username
+
+Errors Received By Host (200s):

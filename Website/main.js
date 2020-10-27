@@ -30,6 +30,9 @@ function handleError(json){
     else if(errNum == 102){
         document.getElementById('error-message').innerHTML = "Error: Host Disconnected";
     } 
+    else if(errNum == 103){
+        document.getElementById('error-message').innerHTML = "Error: Duplicate Username";
+    } 
     else {
         document.getElementById('error-message').innerHTML = "Error: Unknown error, Error Code: " + errNum;
     }

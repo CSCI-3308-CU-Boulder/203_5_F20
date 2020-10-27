@@ -31,7 +31,7 @@ function generateUniqueCode(){
     while(codeToHost.has(code)){
         code = crypto.randomBytes(2).toString('hex');
     }
-	return code;
+	return code.toUpperCase();
 }
 
 // // SSL cert info for https
@@ -65,7 +65,8 @@ wss.on('connection', function connection(ws, req) {
         // Intialize client
         if(json.type == 1){
 
-            let code = json.gameCode;
+            // Cast code to upper case to eliminate errors
+            let code = json.gameCode.toUpperCase();
             let name = json.username;
 
             // One or more inital client inputs is empty
@@ -77,11 +78,23 @@ wss.on('connection', function connection(ws, req) {
             }
             // Game code belongs to a host
             else if(codeToHost.has(code)){
-                console.log("Valid Game code from client. Creating WebClient class");
-                let message = {type: 1, gameCode: code, username: name};
-                ws.send(JSON.stringify(message));
-                client = new WebClient(ws, codeToHost.get(code), name);
-                codeToHost.get(code).addClient(client);
+
+                // Check if username is used by the host already
+                if(codeToHost.get(code).checkDuplicateUsername(name)){
+                    console.log("Client Error: Username taken");
+                    let message = generateErrorMessage(103);
+                    ws.send(JSON.stringify(message));
+                    ws.terminate();
+                }
+                // Successfully create new client, notify the client, and attach
+                // it to the host.
+                else{
+                    console.log("Creating new client: ", name);
+                    let message = {type: 1, gameCode: code, username: name};
+                    ws.send(JSON.stringify(message));
+                    client = new WebClient(ws, codeToHost.get(code), name);
+                    codeToHost.get(code).addClient(client);
+                }
             }
             // Game code does not exist
             else {
@@ -124,7 +137,7 @@ wss.on('connection', function connection(ws, req) {
     });
 });
 
-// Allow the server to accept new connections over port 8000
+// Allow the server to accept new connections over port 80
 // Original value for AWS server was 443
 server.listen(80);
 console.log("Server Info: ", server.address());
