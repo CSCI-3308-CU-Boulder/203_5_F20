@@ -31,7 +31,7 @@ function generateUniqueCode(){
     while(codeToHost.has(code)){
         code = crypto.randomBytes(2).toString('hex');
     }
-	return code;
+	return code.toUpperCase();
 }
 
 // // SSL cert info for https
@@ -65,7 +65,8 @@ wss.on('connection', function connection(ws, req) {
         // Intialize client
         if(json.type == 1){
 
-            let code = json.gameCode;
+            // Cast code to upper case to eliminate errors
+            let code = json.gameCode.toUpperCase();
             let name = json.username;
 
             // One or more inital client inputs is empty
@@ -124,7 +125,7 @@ wss.on('connection', function connection(ws, req) {
     });
 });
 
-// Allow the server to accept new connections over port 8000
+// Allow the server to accept new connections over port 80
 // Original value for AWS server was 443
 server.listen(80);
 console.log("Server Info: ", server.address());
