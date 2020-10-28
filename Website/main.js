@@ -65,7 +65,7 @@ function clientConnect(json){
 }
 
 function startGame(json){
-    document.getElementById('game-username').innerHTML = username;
+    document.getElementById('game-username-name').innerHTML = username;
     document.getElementById('lobby-page').style.display = "none";
     document.getElementById('login-page').style.display = "none";
     document.getElementById('game-page').style.display = "grid";
@@ -90,11 +90,28 @@ function removeClient(json){
     document.getElementById(name).outerHTML = "";
 }
 
+function submit_button_disable(){
+    btn = document.getElementById("submit-button");
+    btn.style.opacity = 0.4;
+    btn.disabled = true;
+    btn.style.cursor = "not-allowed";
+}
+
+function submit_button_enable(){
+    btn = document.getElementById("submit-button");
+    btn.style.opacity = 1.0;
+    btn.disabled = false;
+    btn.style.cursor = "pointer";
+}
+
 function submit_button(){
     // Get data from form
     let name = document.getElementById("username-input").value;
     let code = document.getElementById("game-code-input").value;
     console.log("Username: \"" + name + "\", gameCode: \"" + code +"\"");
+
+    // Disable button
+    submit_button_disable();
 
     // Establish websocket connection
     aWebSocket = new WebSocket('ws://' + IPADDR + ':' + PORT);
@@ -111,6 +128,7 @@ function submit_button(){
             document.getElementById('lobby-players').innerHTML = "";
             lobbyID = "";
             enable_buttons();
+            submit_button_enable();
             
             // Get rid of fake server input
             if(server){
@@ -170,6 +188,11 @@ function submit_button(){
         } 
         
     };
+
+    aWebSocket.onerror = function(event){
+        console.log("Websocket error");
+        submit_button_enable();
+    }
 
 }
 

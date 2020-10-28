@@ -19,12 +19,13 @@ body{
     grid-template-rows: 5em auto;
 }
 
-#top-logo{
+.top-logo{
     display: flex;
     flex-direction: column;
     justify-content: center;
     /*background-color: #dfffdf;*/
     font-size: 3em;
+    cursor: default;
 }
 
 #user-input{
@@ -121,7 +122,7 @@ input[type=button]:active{
     grid-template-rows: 5em auto;
 }
 
-#lobby-info, #game-username, #game-question{
+#lobby-info, .game-username, #game-question{
     font-size: 2.5em;
     padding-bottom: 0em;
 }
@@ -239,7 +240,7 @@ input[type=button]:active{
         padding-top: 0em;
     }
 
-    #lobby-info, #game-username, #game-question{
+    #lobby-info, .game-username, #game-question{
         font-size: 2.2em;
         padding-bottom: 0.5em;
     }
@@ -252,7 +253,7 @@ input[type=button]:active{
         font-size: .5em;
     }
 
-    #top-logo{
+    .top-logo{
         font-size: 3em;
     }
 
@@ -266,7 +267,7 @@ input[type=button]:active{
         padding-top: 0em;
     }
 
-    #lobby-info, #game-username, #game-question{
+    #lobby-info, .game-username, #game-question{
         font-size: 1.9em;
         padding-bottom: 0.5em;
     }
@@ -279,7 +280,7 @@ input[type=button]:active{
         font-size: .4em;
     }
 
-    #top-logo{
+    .top-logo{
         font-size: 2.3em;
     }
 }
@@ -289,7 +290,7 @@ input[type=button]:active{
         padding-top: 0em;
     }
 
-    #lobby-info, #game-username, #game-question{
+    #lobby-info, .game-username, #game-question{
         font-size: 1.6em;
         padding-bottom: 0.5em;
     }
@@ -302,7 +303,7 @@ input[type=button]:active{
         font-size: .4em;
     }
 
-    #top-logo{
+    .top-logo{
         font-size: 1.8em;
     }
 }
