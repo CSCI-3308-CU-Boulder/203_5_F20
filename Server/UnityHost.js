@@ -8,12 +8,21 @@ class UnityHost {
         this.ws = hostWS;
         this.code = code;
         this.clients = [];
+        this.inProgress = false;
 
         let tempHost = this;
 
         // Forward subsequent messages to clients
         this.ws.addEventListener('message', function(messageObject){
             let realData = JSON.parse(messageObject.data);
+
+            if(realData.type == 4){
+                // Game start type from Host
+                tempHost.inProgress = true;
+            } else if(realData.type == 6){
+                // Game end type from Host
+                tempHost.inProgress = false;
+            }
             
             tempHost.clients.forEach(client => {
                 client.ws.send(messageObject.data);

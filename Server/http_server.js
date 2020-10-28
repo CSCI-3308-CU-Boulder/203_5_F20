@@ -86,6 +86,13 @@ wss.on('connection', function connection(ws, req) {
                     ws.send(JSON.stringify(message));
                     ws.terminate();
                 }
+                // Check if game has already started
+                else if(codeToHost.get(code).inProgress){
+                    console.log("Client Error: Game started");
+                    let message = generateErrorMessage(104);
+                    ws.send(JSON.stringify(message));
+                    ws.terminate();
+                }
                 // Successfully create new client, notify the client, and attach
                 // it to the host.
                 else{

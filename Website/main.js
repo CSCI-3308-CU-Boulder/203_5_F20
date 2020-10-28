@@ -35,6 +35,9 @@ function handleError(json){
     } 
     else if(errNum == 103){
         document.getElementById('error-message').innerHTML = "Error: Duplicate Username";
+    }
+    else if(errNum == 104){
+        document.getElementById('error-message').innerHTML = "Error: Game in Progress";
     } 
     else {
         document.getElementById('error-message').innerHTML = "Error: Unknown error, Error Code: " + errNum;
@@ -107,6 +110,7 @@ function submit_button(){
             document.getElementById('login-page').style.display = "grid";
             document.getElementById('lobby-players').innerHTML = "";
             lobbyID = "";
+            enable_buttons();
             
             // Get rid of fake server input
             if(server){
@@ -158,16 +162,64 @@ function submit_button(){
         }
         // Move from lobby page to game page
         else if(json.type == 4){
-            gamePage(json);
+            startGame(json);
         }
+        // Update question
+        else if(json.type == 5){
+            updateGame(json);
+        } 
         
     };
 
 }
 
+// Called when the fake server wants to send a message
 function server_send(){
     let input = document.getElementById("server-input").value;
-    let message = {type: input}
-    console.log("Sending " + input);
+    let message;
+    if(input == 5){
+        message = {type: input, q_num: "4", q_text: "What is an apple?"};
+    } else {
+        message = {type: input};
+    }
+    console.log("Sending " + JSON.stringify(message));
     aWebSocket.send(JSON.stringify(message));
+}
+
+// Called when the host sends a new question
+function updateGame(json){
+    enable_buttons();
+    document.getElementById("question-num").innerHTML = json.q_num;
+    document.getElementById("question-text").innerHTML = json.q_text;
+
+}
+
+// Called when we press a button during gameplay
+function game_select(option){
+    // Disable buttons on click
+    children = document.getElementById("game-buttons").children;
+    for(var i = 0; i < children.length; i++){
+        if(children[i].innerHTML == option){
+            children[i].style.opacity = 1.0;
+        } else {
+            children[i].style.opacity = 0.4;
+        }
+        children[i].disabled = true;
+        children[i].style.cursor = "not-allowed";
+    }
+
+    // Send answer
+    let message = {type: 5, data: option, username: username};
+    console.log("Sending " + option);
+    aWebSocket.send(JSON.stringify(message));
+}
+
+function enable_buttons(){
+    // Enable buttons to click
+    children = document.getElementById("game-buttons").children;
+    for(var i = 0; i < children.length; i++){
+        children[i].style.opacity = 1.0;
+        children[i].disabled = false;
+        children[i].style.cursor = "pointer";
+    }
 }

@@ -121,7 +121,7 @@ input[type=button]:active{
     grid-template-rows: 5em auto;
 }
 
-#lobby-info, #game-username{
+#lobby-info, #game-username, #game-question{
     font-size: 2.5em;
     padding-bottom: 0em;
 }
@@ -156,12 +156,63 @@ input[type=button]:active{
     cursor: pointer;
 }
 
-.game-button:hover{
-    border-radius: .6em;
+#gb1{
+    background-color: #ff0000;
 }
 
-.game-button:active{
-    border-radius: .9em;
+#gb1:hover{
+    transition-duration: .25s;
+    background-color:#ba0000;
+}
+
+#gb1:active{
+    transition-duration: .1s;
+    background-color: #710000;
+}
+
+#gb2{
+    transition-duration: .25s;
+    background-color: #00ff00;
+}
+
+#gb2:hover{
+    transition-duration: .25s;
+    background-color: #00ba00;
+}
+
+#gb2:active{
+    transition-duration: .1s;
+    background-color:#007100;
+}
+
+#gb3{
+    transition-duration: .25s;
+    background-color: #0000ff;
+}
+
+#gb3:hover{
+    transition-duration: .25s;
+    background-color: #0000ba;
+}
+
+#gb3:active{
+    transition-duration: .1s;
+    background-color:#000071;
+}
+
+#gb4{
+    transition-duration: .25s;
+    background-color: #ff00ff;
+}
+
+#gb4:hover{
+    transition-duration: .25s;
+    background-color: #ba00ba;
+}
+
+#gb4:active{
+    transition-duration: .1s;
+    background-color:#710071;
 }
 
 .waiting{
@@ -188,7 +239,7 @@ input[type=button]:active{
         padding-top: 0em;
     }
 
-    #lobby-info, #game-username{
+    #lobby-info, #game-username, #game-question{
         font-size: 2.2em;
         padding-bottom: 0.5em;
     }
@@ -215,7 +266,7 @@ input[type=button]:active{
         padding-top: 0em;
     }
 
-    #lobby-info, #game-username{
+    #lobby-info, #game-username, #game-question{
         font-size: 1.9em;
         padding-bottom: 0.5em;
     }
@@ -238,7 +289,7 @@ input[type=button]:active{
         padding-top: 0em;
     }
 
-    #lobby-info, #game-username{
+    #lobby-info, #game-username, #game-question{
         font-size: 1.6em;
         padding-bottom: 0.5em;
     }
