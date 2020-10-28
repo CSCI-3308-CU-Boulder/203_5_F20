@@ -27,3 +27,8 @@ Client Disconnect
     "type": 3,
     "username": USERNAME
 }
+
+Start Game
+{
+    "type": 4,
+}

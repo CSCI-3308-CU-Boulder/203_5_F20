@@ -59,6 +59,13 @@ function clientConnect(json){
 
 }
 
+function startGame(json){
+    document.getElementById('game-username').innerHTML = username;
+    document.getElementById('lobby-page').style.display = "none";
+    document.getElementById('login-page').style.display = "none";
+    document.getElementById('game-page').style.display = "grid";
+}
+
 function serverConnect(json){
     let code = json.gameCode;
 
@@ -94,9 +101,9 @@ function submit_button(){
         // Check to see if we have already joined a lobby
         if(document.getElementById("login-page").style.display == "none"){
             document.getElementById('lobby-page').style.display = "none";
+            document.getElementById('game-page').style.display = "none";
             document.getElementById('login-page').style.display = "grid";
             document.getElementById('lobby-players').innerHTML = "";
-            document.getElementById('error-message').innerHTML = "Websocket closed";
             lobbyID = "";
             
             // Get rid of fake server input
@@ -147,6 +154,10 @@ function submit_button(){
         else if(json.type == 3){
             removeClient(json);
         }
+        // Move from lobby page to game page
+        else if(json.type == 4){
+            gamePage(json);
+        }
         
     };
 
@@ -154,7 +165,7 @@ function submit_button(){
 
 function server_send(){
     let input = document.getElementById("server-input").value;
-    let message = {data: input}
+    let message = {type: input}
     console.log("Sending " + input);
     aWebSocket.send(JSON.stringify(message));
 }
