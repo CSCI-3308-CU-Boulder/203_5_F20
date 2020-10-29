@@ -49,13 +49,13 @@ function clientConnect(json){
     let code = json.gameCode;
 
     lobbyID = code;
-    username = name;
 
     if(!connected){
         document.getElementById('lobby-page').style.display = "grid";
         document.getElementById('login-page').style.display = "none";
         document.getElementById('error-message').innerHTML = "";
         document.getElementById('lobby-id').innerHTML = lobbyID;
+        username = name;
         connected = true;
     }
 
