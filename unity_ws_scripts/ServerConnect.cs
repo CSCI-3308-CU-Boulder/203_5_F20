@@ -35,7 +35,7 @@ public class ServerConnect : MonoBehaviour
     }
 
     public void RequestCode(){
-      Message m = new Message(2, "123", "conor", 3);
+      Message m = new Message(2, "", "", -1, -1, "", -1);
       string json_message = m.JsonConvert();
       Debug.Log(json_message);
       client.SendMessage(json_message);
