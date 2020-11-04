@@ -4,7 +4,7 @@ const IPADDR = '3.130.99.109';
 // const PORT = '80';
 const PORT = '80';
 var lobbyID = "";
-var username = "";
+var userName = "";
 var connected = false;
 var server = false;
 
@@ -45,7 +45,7 @@ function handleError(json){
 }
 
 function clientConnect(json){
-    let name = json.username;
+    let name = json.userName;
     let code = json.gameCode;
 
     lobbyID = code;
@@ -55,7 +55,7 @@ function clientConnect(json){
         document.getElementById('login-page').style.display = "none";
         document.getElementById('error-message').innerHTML = "";
         document.getElementById('lobby-id').innerHTML = lobbyID;
-        username = name;
+        userName = name;
         connected = true;
     }
 
@@ -65,7 +65,7 @@ function clientConnect(json){
 }
 
 function startGame(json){
-    document.getElementById('game-username-name').innerHTML = username;
+    document.getElementById('game-username-name').innerHTML = userName;
     document.getElementById('lobby-page').style.display = "none";
     document.getElementById('login-page').style.display = "none";
     document.getElementById('game-page').style.display = "grid";
@@ -86,7 +86,7 @@ function serverConnect(json){
 }
 
 function removeClient(json){
-    let name = json.username;
+    let name = json.userName;
     document.getElementById(name).outerHTML = "";
 }
 
@@ -147,12 +147,12 @@ function submit_button(){
         if(code === "servertest"){
             server = true;
             document.getElementById('server-send').style.display = "flex";
-            let message = {type: 2, gameCode: code, username: name}
+            let message = {type: 2, gameCode: code, userName: name}
             aWebSocket.send(JSON.stringify(message));
             return;
         }
         // =====================================================================
-        let message = {type: 1, gameCode: code, username: name}
+        let message = {type: 1, gameCode: code, userName: name}
         aWebSocket.send(JSON.stringify(message));
     };
 
@@ -235,7 +235,7 @@ function game_select(option){
     }
 
     // Send answer
-    let message = {type: 5, data: option, username: username};
+    let message = {type: 5, data: option, userName: userName};
     console.log("Sending " + option);
     aWebSocket.send(JSON.stringify(message));
 }
