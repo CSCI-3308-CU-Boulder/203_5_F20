@@ -29,16 +29,16 @@ function handleError(json){
     }
     else if(errNum == 101){
         document.getElementById('error-message').innerHTML = "Error: Invalid Game ID";
-    } 
+    }
     else if(errNum == 102){
         document.getElementById('error-message').innerHTML = "Error: Host Disconnected";
-    } 
+    }
     else if(errNum == 103){
         document.getElementById('error-message').innerHTML = "Error: Duplicate Username";
     }
     else if(errNum == 104){
         document.getElementById('error-message').innerHTML = "Error: Game in Progress";
-    } 
+    }
     else {
         document.getElementById('error-message').innerHTML = "Error: Unknown error, Error Code: " + errNum;
     }
@@ -129,7 +129,7 @@ function submit_button(){
             lobbyID = "";
             enable_buttons();
             submit_button_enable();
-            
+
             // Get rid of fake server input
             if(server){
                 server = false;
@@ -185,8 +185,8 @@ function submit_button(){
         // Update question
         else if(json.type == 5){
             updateGame(json);
-        } 
-        
+        }
+
     };
 
     aWebSocket.onerror = function(event){
@@ -219,10 +219,13 @@ function updateGame(json){
 
 // Called when we press a button during gameplay
 function game_select(option){
+    // Dictionary of letters for actual UI
+    var letters = ["A","B","C","D"];
+
     // Disable buttons on click
     children = document.getElementById("game-buttons").children;
     for(var i = 0; i < children.length; i++){
-        if(children[i].innerHTML == option){
+        if(children[i].innerHTML == letters[option]){
             children[i].style.opacity = 1.0;
         } else {
             children[i].style.opacity = 0.4;
