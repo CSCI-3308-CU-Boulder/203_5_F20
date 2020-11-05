@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
-<script src="main.js"></script> 
+<script src="main.js"></script>
 <body>
 
     <img id="help-button" src="SVG/help-circle-outline.svg" alt="(?)" onclick="display_help()">
@@ -46,7 +46,7 @@
             <div id="lobby-info">
                 <div id="server-send">
                     <input type="text" id="server-input">
-                    <button type="button" id="server-button" onclick="server_send()">Send</button> 
+                    <button type="button" id="server-button" onclick="server_send()">Send</button>
                 </div>
                 <div id="lobby-name">
                     Connected to lobby <span id="lobby-id">0xID</span>:
@@ -74,10 +74,10 @@
                     Question <span id="question-num">1</span>: <span id="question-text">What is the name of the dog in the loading screen?</span>
                 </div>
                 <div id="game-buttons">
-                    <button class="game-button" id="gb1" onclick='game_select("A")'>A</button>
-                    <button class="game-button" id="gb2" onclick='game_select("B")'>B</button>
-                    <button class="game-button" id="gb3" onclick='game_select("C")'>C</button>
-                    <button class="game-button" id="gb4" onclick='game_select("D")'>D</button>
+                    <button class="game-button" id="gb1" onclick='game_select(0)'>A</button>
+                    <button class="game-button" id="gb2" onclick='game_select(1)'>B</button>
+                    <button class="game-button" id="gb3" onclick='game_select(2)'>C</button>
+                    <button class="game-button" id="gb4" onclick='game_select(3)'>D</button>
                 </div>
             </div>
         </div>

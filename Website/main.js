@@ -4,7 +4,7 @@ const IPADDR = '3.130.99.109';
 // const PORT = '80';
 const PORT = '80';
 var lobbyID = "";
-var username = "";
+var userName = "";
 var connected = false;
 var server = false;
 
@@ -29,23 +29,23 @@ function handleError(json){
     }
     else if(errNum == 101){
         document.getElementById('error-message').innerHTML = "Error: Invalid Game ID";
-    } 
+    }
     else if(errNum == 102){
         document.getElementById('error-message').innerHTML = "Error: Host Disconnected";
-    } 
+    }
     else if(errNum == 103){
         document.getElementById('error-message').innerHTML = "Error: Duplicate Username";
     }
     else if(errNum == 104){
         document.getElementById('error-message').innerHTML = "Error: Game in Progress";
-    } 
+    }
     else {
         document.getElementById('error-message').innerHTML = "Error: Unknown error, Error Code: " + errNum;
     }
 }
 
 function clientConnect(json){
-    let name = json.username;
+    let name = json.userName;
     let code = json.gameCode;
 
     lobbyID = code;
@@ -55,7 +55,7 @@ function clientConnect(json){
         document.getElementById('login-page').style.display = "none";
         document.getElementById('error-message').innerHTML = "";
         document.getElementById('lobby-id').innerHTML = lobbyID;
-        username = name;
+        userName = name;
         connected = true;
     }
 
@@ -65,7 +65,7 @@ function clientConnect(json){
 }
 
 function startGame(json){
-    document.getElementById('game-username-name').innerHTML = username;
+    document.getElementById('game-username-name').innerHTML = userName;
     document.getElementById('lobby-page').style.display = "none";
     document.getElementById('login-page').style.display = "none";
     document.getElementById('game-page').style.display = "grid";
@@ -86,7 +86,7 @@ function serverConnect(json){
 }
 
 function removeClient(json){
-    let name = json.username;
+    let name = json.userName;
     document.getElementById(name).outerHTML = "";
 }
 
@@ -128,8 +128,7 @@ function submit_button(){
             document.getElementById('lobby-players').innerHTML = "";
             lobbyID = "";
             enable_buttons();
-            submit_button_enable();
-            
+
             // Get rid of fake server input
             if(server){
                 server = false;
@@ -137,6 +136,7 @@ function submit_button(){
             }
             connected = false;
         }
+        submit_button_enable();
     };
 
     aWebSocket.onopen = function(event) {
@@ -147,12 +147,12 @@ function submit_button(){
         if(code === "servertest"){
             server = true;
             document.getElementById('server-send').style.display = "flex";
-            let message = {type: 2, gameCode: code, username: name}
+            let message = {type: 2, gameCode: code, userName: name}
             aWebSocket.send(JSON.stringify(message));
             return;
         }
         // =====================================================================
-        let message = {type: 1, gameCode: code, username: name}
+        let message = {type: 1, gameCode: code, userName: name}
         aWebSocket.send(JSON.stringify(message));
     };
 
@@ -185,8 +185,8 @@ function submit_button(){
         // Update question
         else if(json.type == 5){
             updateGame(json);
-        } 
-        
+        }
+
     };
 
     aWebSocket.onerror = function(event){
@@ -219,10 +219,13 @@ function updateGame(json){
 
 // Called when we press a button during gameplay
 function game_select(option){
+    // Dictionary of letters for actual UI
+    var letters = ["A","B","C","D"];
+
     // Disable buttons on click
     children = document.getElementById("game-buttons").children;
     for(var i = 0; i < children.length; i++){
-        if(children[i].innerHTML == option){
+        if(children[i].innerHTML == letters[option]){
             children[i].style.opacity = 1.0;
         } else {
             children[i].style.opacity = 0.4;
@@ -232,7 +235,7 @@ function game_select(option){
     }
 
     // Send answer
-    let message = {type: 5, data: option, username: username};
+    let message = {type: 5, data: option, userName: userName};
     console.log("Sending " + option);
     aWebSocket.send(JSON.stringify(message));
 }
