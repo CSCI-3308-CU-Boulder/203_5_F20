@@ -214,7 +214,7 @@ function updateGame(json){
     enable_buttons();
     document.getElementById("question-num").innerHTML = json.q_num;
     document.getElementById("question-text").innerHTML = json.q_text;
-
+    
 }
 
 // Called when we press a button during gameplay
