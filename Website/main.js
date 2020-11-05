@@ -128,7 +128,6 @@ function submit_button(){
             document.getElementById('lobby-players').innerHTML = "";
             lobbyID = "";
             enable_buttons();
-            submit_button_enable();
 
             // Get rid of fake server input
             if(server){
@@ -137,6 +136,7 @@ function submit_button(){
             }
             connected = false;
         }
+        submit_button_enable();
     };
 
     aWebSocket.onopen = function(event) {
