@@ -67,7 +67,7 @@ wss.on('connection', function connection(ws, req) {
 
             // Cast code to upper case to eliminate errors
             let code = json.gameCode.toUpperCase();
-            let name = json.username;
+            let name = json.userName;
 
             // One or more inital client inputs is empty
             if(code == "" || name == ""){
@@ -97,7 +97,7 @@ wss.on('connection', function connection(ws, req) {
                 // it to the host.
                 else{
                     console.log("Creating new client: ", name);
-                    let message = {type: 1, gameCode: code, username: name};
+                    let message = {type: 1, gameCode: code, userName: name};
                     ws.send(JSON.stringify(message));
                     client = new WebClient(ws, codeToHost.get(code), name);
                     codeToHost.get(code).addClient(client);

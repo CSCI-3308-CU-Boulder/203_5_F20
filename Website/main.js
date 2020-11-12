@@ -1,7 +1,6 @@
 // IP address of AWS server
-// const IPADDR = 'localhost';
+//const IPADDR = 'localhost';
 const IPADDR = '3.130.99.109';
-// const PORT = '80';
 const PORT = '80';
 var lobbyID = "";
 var userName = "";
@@ -47,6 +46,8 @@ function handleError(json){
 function clientConnect(json){
     let name = json.userName;
     let code = json.gameCode;
+
+    console.log("clientConnect name: " + name);
 
     lobbyID = code;
 

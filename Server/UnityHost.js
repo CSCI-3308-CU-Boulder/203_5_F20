@@ -53,7 +53,7 @@ class UnityHost {
     addClient(newClient){
         console.log("Host " + this.code + " adding new client object: " + newClient.name);
 
-        let message = {type: 1, username: newClient.name};
+        let message = {type: 1, userName: newClient.name};
         this.ws.send(JSON.stringify(message));
         
         // Send old clients the new client and send the new client all the old
@@ -62,10 +62,10 @@ class UnityHost {
         // NEED TO KNOW ABOUT EACH OTHER
         // =====================================================================
         this.clients.forEach(oldClient => {
-            let oldMessage = {type: 1, username: newClient.name};
+            let oldMessage = {type: 1, userName: newClient.name};
             oldClient.ws.send(JSON.stringify(oldMessage))
 
-            let newMessage = {type: 1, username: oldClient.name};
+            let newMessage = {type: 1, userName: oldClient.name};
             newClient.ws.send(JSON.stringify(newMessage));
         }); 
         // =====================================================================
@@ -92,7 +92,7 @@ class UnityHost {
 
         this.clients.splice(this.clients.indexOf(oldClient), 1);
 
-        let message = {type: 3, username: oldClient.name};
+        let message = {type: 3, userName: oldClient.name};
         this.ws.send(JSON.stringify(message));
 
         // Send other clients the removal of the old client
