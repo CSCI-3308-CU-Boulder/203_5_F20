@@ -28,6 +28,10 @@ body{
     cursor: default;
 }
 
+#lobby-players, .waiting, .top-logo, #lobby-name, .game-username, #game-question, #user-input, #help-button, #help-overlay, .game-button{
+    cursor: default;
+}
+
 #user-input{
     display: flex;
     flex-direction: column;

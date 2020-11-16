@@ -31,6 +31,8 @@ Client Disconnect
 Start Game
 {
     "type": 4,
+    "q_num": (number of the question),
+    "q_text": (text of the question)
 }
 
 Client button click (OPTION is one of 'A', 'B', 'C', 'D')
@@ -47,7 +49,7 @@ Host change question
     "q_text": (text of the question)
 }
 
-Host ends game
+Host ends round
 {
     "type": 6
 }

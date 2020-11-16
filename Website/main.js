@@ -1,6 +1,7 @@
 // IP address of AWS server
-//const IPADDR = 'localhost';
-const IPADDR = '3.130.99.109';
+const IPADDR = 'localhost';
+//const IPADDR = '3.130.99.109';
+//const IPADDR = '3.130.99.110';
 const PORT = '80';
 var lobbyID = "";
 var userName = "";
@@ -70,6 +71,7 @@ function startGame(json){
     document.getElementById('lobby-page').style.display = "none";
     document.getElementById('login-page').style.display = "none";
     document.getElementById('game-page').style.display = "grid";
+    updateGame(json);
 }
 
 function serverConnect(json){
@@ -92,17 +94,36 @@ function removeClient(json){
 }
 
 function submit_button_disable(){
-    btn = document.getElementById("submit-button");
-    btn.style.opacity = 0.4;
-    btn.disabled = true;
-    btn.style.cursor = "not-allowed";
+    disable_elem(document.getElementById("submit-button"));
+    disable_elem(document.getElementById("game-code-input"));
+    disable_elem(document.getElementById("username-input"));
 }
 
 function submit_button_enable(){
-    btn = document.getElementById("submit-button");
-    btn.style.opacity = 1.0;
-    btn.disabled = false;
-    btn.style.cursor = "pointer";
+    enable_elem(document.getElementById("submit-button"));
+    enable_elem(document.getElementById("game-code-input"));
+    enable_elem(document.getElementById("username-input"));
+    document.getElementById("submit-button").style.cursor = "pointer";
+}
+
+function enable_elem(e){
+    console.log("Enabling buttons");
+    e.style.opacity = 1.0;
+    e.disabled = false;
+    e.style.cursor = "text";
+}
+
+function disable_elem(e){
+    console.log("Disabling buttons");
+    e.style.opacity = 0.4;
+    e.disabled = true;
+    e.style.cursor = "not-allowed";
+}
+
+function endRound(json){
+    disable_question_buttons();
+    qID = document.getElementById("game-question");
+    qID.innerHTML="Round Ended";
 }
 
 function submit_button(){
@@ -120,6 +141,12 @@ function submit_button(){
     // Install event handlers
     aWebSocket.onclose = function(event) {
         console.log("WebSocket is closed");
+
+        // Check if error is already printed
+        err_id = document.getElementById('error-message');
+        if(err_id.innerHTML == ""){
+            err_id.innerHTML = "Error: Internal Server Error";
+        }
 
         // Check to see if we have already joined a lobby
         if(document.getElementById("login-page").style.display == "none"){
@@ -143,6 +170,11 @@ function submit_button(){
     aWebSocket.onopen = function(event) {
         console.log("Connected to server");
 
+
+        // Random gif (put in here so we don't get a new gif
+        //             every time a new client connects)
+        document.getElementById("waiting-gif").src = "GIF/" + randomGif();
+
         // THIS IS CODE TO FAKE BEING A SERVER SO WE DON'T NEED UNITY YET
         // =====================================================================
         if(code === "servertest"){
@@ -153,13 +185,14 @@ function submit_button(){
             return;
         }
         // =====================================================================
+
         let message = {type: 1, gameCode: code, userName: name}
         aWebSocket.send(JSON.stringify(message));
     };
 
     aWebSocket.onmessage = function(event) {
         console.log("Message received: ", event);
-        console.log("Message: " + event.data);
+        console.log("Message data: " + event.data);
 
         let json = JSON.parse(event.data);
 
@@ -187,6 +220,10 @@ function submit_button(){
         else if(json.type == 5){
             updateGame(json);
         }
+        // Hide buttons and update question text when round ends
+        else if(json.type == 6){
+            endRound(json);
+        }
 
     };
 
@@ -201,7 +238,7 @@ function submit_button(){
 function server_send(){
     let input = document.getElementById("server-input").value;
     let message;
-    if(input == 5){
+    if(input == 5 || input == 4){
         message = {type: input, q_num: "4", q_text: "What is an apple?"};
     } else {
         message = {type: input};
@@ -213,8 +250,7 @@ function server_send(){
 // Called when the host sends a new question
 function updateGame(json){
     enable_buttons();
-    document.getElementById("question-num").innerHTML = json.q_num;
-    document.getElementById("question-text").innerHTML = json.q_text;
+    document.getElementById("game-question").innerHTML='Question <span id="question-num">'+json.q_num+'</span>: <span id="question-text">'+json.q_text+'</span>'
     
 }
 
@@ -223,17 +259,7 @@ function game_select(option){
     // Dictionary of letters for actual UI
     var letters = ["A","B","C","D"];
 
-    // Disable buttons on click
-    children = document.getElementById("game-buttons").children;
-    for(var i = 0; i < children.length; i++){
-        if(children[i].innerHTML == letters[option]){
-            children[i].style.opacity = 1.0;
-        } else {
-            children[i].style.opacity = 0.4;
-        }
-        children[i].disabled = true;
-        children[i].style.cursor = "not-allowed";
-    }
+    disable_question_buttons(letters[option]);
 
     // Send answer
     let message = {type: 5, data: option, userName: userName};
@@ -249,4 +275,45 @@ function enable_buttons(){
         children[i].disabled = false;
         children[i].style.cursor = "pointer";
     }
+}
+
+// Disable all buttons, highlight button with text "ans"
+function disable_question_buttons(ans){
+    // Disable buttons on click
+    children = document.getElementById("game-buttons").children;
+    for(var i = 0; i < children.length; i++){
+        if(children[i].innerHTML == ans){
+            children[i].style.opacity = 1.0;
+        } else {
+            children[i].style.opacity = 0.4;
+        }
+        children[i].disabled = true;
+        children[i].style.cursor = "not-allowed";
+    }
+}
+
+function randomGif(){
+    let gifOpts=[   "blueman.gif",
+                    "dexter.gif",
+                    "homer.gif",
+                    "homer2.gif",
+                    "hot_dog.gif",
+                    "lolwhat.gif",
+                    "monkey.gif",
+                    "simpsons.gif",
+                    "spacecowboy.gif",
+                    "spongebob.gif",
+                    "thebean.gif"];
+
+    return gifOpts[Math.floor(Math.random() * gifOpts.length)];
+}
+
+function enterListeners(){
+    console.log("YO");
+    // Enable "enter" event listeners
+    document.getElementById("user-input").addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            submit_button();
+        }
+    });
 }
