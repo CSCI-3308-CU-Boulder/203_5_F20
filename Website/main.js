@@ -1,7 +1,6 @@
 // IP address of AWS server
-const IPADDR = 'localhost';
-//const IPADDR = '3.130.99.109';
-//const IPADDR = '3.130.99.110';
+// const IPADDR = 'localhost';
+const IPADDR = '3.130.99.109';
 const PORT = '80';
 var lobbyID = "";
 var userName = "";
