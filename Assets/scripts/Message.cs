@@ -13,13 +13,20 @@ public class Message
     [SerializeField] public string gameCode;
     [SerializeField] public string userName;
     [SerializeField] public int errNum;
-
-    public Message(int t, string g, string u, int e)
+    [SerializeField] public int q_num;
+    [SerializeField] public string q_text;
+    [SerializeField] public int data;
+    public Message(int t, string g, string u, int e, int q,string s,int d)
     {
         type = t;
         gameCode = g;
         userName = u;
         errNum = e;
+        q_num = q;
+        q_text = s;
+        data = d;
+
+
     }
 
     public string JsonConvert()

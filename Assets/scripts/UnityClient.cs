@@ -133,8 +133,10 @@ public class UnityClient
         }
     }
 
-    public void RestartThread(){
+    public void RestartThread()
+    {
         inThread = new Thread(MessageIn);
         inThread.Start();
     }
+
 }
