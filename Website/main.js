@@ -122,7 +122,13 @@ function disable_elem(e){
 function endRound(json){
     disable_question_buttons();
     qID = document.getElementById("game-question");
-    qID.innerHTML="Round Ended";
+    qID.innerHTML="Waiting for next question";
+}
+
+function endGame(json){
+    disable_question_buttons();
+    qID = document.getElementById("game-question");
+    qID.innerHTML="Game ended";
 }
 
 function submit_button(){
@@ -222,6 +228,8 @@ function submit_button(){
         // Hide buttons and update question text when round ends
         else if(json.type == 6){
             endRound(json);
+        } else if(json.type == 7){
+            endGame(json);
         }
 
     };
