@@ -20,3 +20,5 @@ How do I play?
 On the host side,
 
 On the player side, go to http://ttgames.us/ and fill in the forms: choose a nickname, and type in the game code displayed on the host's screen. This should bring you to a waiting room with the rest of the players until the host starts uo the game! Once the game starts, a quote will be displayed with 4 possible answers as to who said it. Make your vote by selecting on your browser. If you got it right, you get a point! Once the host ends the game, the player with the most points wins!
+
+Git Repository Structure
