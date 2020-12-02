@@ -228,7 +228,9 @@ function submit_button(){
         // Hide buttons and update question text when round ends
         else if(json.type == 6){
             endRound(json);
-        } else if(json.type == 7){
+        }
+        // Hide buttons and update question text when game ends
+        else if(json.type == 7){
             endGame(json);
         }
 
