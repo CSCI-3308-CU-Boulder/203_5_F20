@@ -1,0 +1,191 @@
+commit c6101dafb91cce61d2abfdaa1ac422d5bf939747
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Thu Dec 3 17:14:28 2020 -0700
+
+    Removed failed idea for unity upload
+--
+commit ff0b601994780a134d59185dc89b168994179100
+Author: James Bohn <jbohn3353@gmail.com>
+Date:   Thu Dec 3 16:07:17 2020 -0700
+
+    Add files via upload
+--
+commit 7dcd254503b04d418f3997079458f06c927844ce
+Author: James Bohn <jbohn3353@gmail.com>
+Date:   Thu Dec 3 16:06:30 2020 -0700
+
+    Delete Presentation Slides.pdf
+--
+commit e5ff95962351e315c50008dc64220eb8fe65dcc9
+Author: James Bohn <jbohn3353@gmail.com>
+Date:   Thu Dec 3 16:05:52 2020 -0700
+
+    Added slides
+--
+commit 3ffc11c06cda6fe27f25325378cd7a46095cdf88
+Author: James Bohn <jbohn3353@gmail.com>
+Date:   Thu Nov 5 18:00:47 2020 -0700
+
+    Create CNAME
+--
+Merge: 2ca9879 e87b77e
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Thu Nov 5 12:42:11 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_5_F20
+--
+commit 2ca98798c928862c36d595360f4a918a716a2643
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Thu Nov 5 12:42:09 2020 -0700
+
+    Update main.js
+--
+commit 73d5f974b0df98ccbdeffe940b333d2e3ff6f2ca
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Wed Oct 28 17:24:10 2020 -0600
+
+    Updated website port
+--
+commit 3360ec9fb67bebba83e44b5334ee9a2c80f1e1e1
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Tue Oct 27 17:54:34 2020 -0600
+
+    forEach scope :angry:
+--
+Merge: 9d39749 9c62800
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Tue Oct 27 17:37:22 2020 -0600
+
+    Merge remote-tracking branch 'origin/WebsiteUpdates' into ScopeFix
+--
+commit 9d397497472c27f2b5db55f61ca9c1ebc2dec386
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Tue Oct 27 17:36:59 2020 -0600
+
+    scope :angry:
+--
+commit 8b376d6c6bf250db596c9dcab4537602aa68b8ba
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Tue Oct 27 12:22:18 2020 -0600
+
+    Client js handles duplicate username error
+--
+commit 4cfec845e55be709667e125587d71f2831e779f8
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Tue Oct 27 12:21:09 2020 -0600
+
+    Forward messages between hosts and clients
+--
+commit 746b765a35cb81096cf046ab1b302d47bedbdd06
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Tue Oct 27 12:18:24 2020 -0600
+
+    Prevent duplicate usernames in the same lobby
+--
+commit b3174241eef7f0f04e8460e67fec7b0f5c53ee7a
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Tue Oct 27 11:30:41 2020 -0600
+
+    Case Insensitive Codes
+--
+commit d8d186f50a1686afed97857f2720a23111362a3b
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Wed Oct 14 16:20:45 2020 -0600
+
+    Fixed message formats
+--
+commit d5a57da01bd3596e24cc9c8aee3e76755bc7d718
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Wed Oct 14 16:20:37 2020 -0600
+
+    Fake web hosts correctly show game code
+--
+commit 76f8847d80062de45c2bfecea9117c21e227e3c1
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Wed Oct 14 16:09:30 2020 -0600
+
+    New clients send type 1 to other clients
+--
+commit 3a01f5c34d725429854837368ef0c60768a37eeb
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Wed Oct 14 15:54:51 2020 -0600
+
+    Changed Message formats to not be nested
+--
+Merge: 7213055 1fda6a1
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Sun Oct 11 12:41:22 2020 -0600
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_5_F20
+--
+commit 7213055d850744cf21e4ae37bdf113165560122f
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Sun Oct 11 12:41:01 2020 -0600
+
+    Update msgFormat and error handle for webui
+--
+commit d3055b19a76f61f68acec7de2ae3b02511ae4b0d
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Sun Oct 11 12:17:25 2020 -0600
+
+    Handle Client and Host Diconnects Cleanly
+--
+commit de78888cb69f1f3b0a314ae49007ae75aaf67fb1
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Sat Oct 10 23:53:30 2020 -0600
+
+    Tell host game code on init
+--
+commit 64252b181f8b936d7a0a239850cef149cc75fbfa
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Sat Oct 10 23:43:53 2020 -0600
+
+    Functional WebClient and Server Waiting Room
+--
+Merge: ee3549f 07a2227
+Author: James Bohn <jbohn3353@gmail.com>
+Date:   Thu Sep 17 18:41:45 2020 -0600
+
+    Merge pull request #2 from CSCI-3308-CU-Boulder/alexeys_playhouse
+--
+Merge: 010828a ee3549f
+Author: James Bohn <jbohn3353@gmail.com>
+Date:   Thu Sep 17 18:33:20 2020 -0600
+
+    Merge branch 'master' into alexeys_playhouse
+--
+commit 010828a9264bd6852bab7631f8f7be64a4385efb
+Author: James Bohn <jbohn3353@gmail.com>
+Date:   Thu Sep 17 18:31:33 2020 -0600
+
+    Update README.md
+--
+commit 1b8b387daf79800ffe9dd2996f58b600947c826c
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Thu Sep 17 18:22:56 2020 -0600
+
+    Added title
+--
+Merge: 3ab2f4a f4e51bb
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Thu Sep 17 18:17:58 2020 -0600
+
+    Fixed
+--
+commit f4e51bb0a71d977d68f9a4f134f1647237d8ebe6
+Author: James Bohn <jbohn3353@gmail.com>
+Date:   Thu Sep 17 18:16:18 2020 -0600
+
+    Update README.md
+--
+commit 3ab2f4a243716798d1d0876dbe1d2bab89bf5ddf
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Thu Sep 17 18:13:56 2020 -0600
+
+    random
+--
+commit 1366672859b26ccbf7aa7e241837feb16523e1c2
+Author: jbohn3353 <jbohn3353@gmail.com>
+Date:   Thu Sep 17 18:01:42 2020 -0600
+
+    Jimmy's name

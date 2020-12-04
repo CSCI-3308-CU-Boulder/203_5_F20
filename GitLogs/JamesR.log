@@ -1,0 +1,53 @@
+commit 3be27666f5a992a5b415d14aa93f77af6d083f83
+Author: James Ryan <56053444+jary7635@users.noreply.github.com>
+Date:   Thu Oct 15 19:25:29 2020 -0600
+
+    Project Milestone 3
+--
+Merge: 2be3229 a24d694
+Author: James Ryan <56053444+jary7635@users.noreply.github.com>
+Date:   Wed Sep 23 16:02:02 2020 -0600
+
+    Merge pull request #6 from CSCI-3308-CU-Boulder/StaticWebsite
+--
+Merge: 2dba4f4 8e1c790
+Author: James Ryan <56053444+jary7635@users.noreply.github.com>
+Date:   Thu Sep 17 18:48:13 2020 -0600
+
+    Merge pull request #3 from CSCI-3308-CU-Boulder/newBranch
+--
+Merge: 0a3dd42 2dba4f4
+Author: James Ryan <56053444+jary7635@users.noreply.github.com>
+Date:   Thu Sep 17 18:47:57 2020 -0600
+
+    Merge branch 'master' into newBranch
+--
+commit 0a3dd4257aa72abdb886d96fb709bf3f20a8d5c3
+Author: jary7635 <jary7635@colorado.edu>
+Date:   Thu Sep 17 18:28:37 2020 -0600
+
+    newpush
+--
+commit 565fb2dcd97ec5de06f783b42a6a9a62f38b490e
+Author: jary7635 <jary7635@colorado.edu>
+Date:   Thu Sep 17 18:27:13 2020 -0600
+
+    hopefully the final push?
+--
+Merge: 40964dd 16044a6
+Author: jary7635 <jary7635@colorado.edu>
+Date:   Thu Sep 17 18:26:01 2020 -0600
+
+    message again
+--
+Merge: cb3295d ccfb6f0
+Author: jary7635 <jary7635@colorado.edu>
+Date:   Thu Sep 17 18:23:10 2020 -0600
+
+    message
+--
+commit cb3295dd3eba533af6cec708e395c124f9d5589b
+Author: jary7635 <jary7635@colorado.edu>
+Date:   Thu Sep 17 18:21:18 2020 -0600
+
+    message

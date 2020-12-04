@@ -1,17 +1,15 @@
-// Map for correlating game Code's to host objects
+// Map for correlating game codes to host objects
 // Format: String: gameCode => UnityHost: host object
-// 123 is a dummy value for testing, the value can also be changed to
-// whatever else is appropriate (ie. host websocket connections)
 var codeToHost = new Map();
 
-// Remove a host from the map when it's connection is closed by its game code
+// Remove a host from the map when its connection is closed by its game code
 function removeHostByCode(code){
     codeToHost.delete(code);
 }
 
 // Helper function to generate JSON errors based on error number
 function generateErrorMessage(err){
-    return {type: -1, params: {errNum: err}};
+    return {type: -1, errNum: err};
 }
 
 // Define the prior functions and export to module so that the Host import has
@@ -33,7 +31,7 @@ function generateUniqueCode(){
     while(codeToHost.has(code)){
         code = crypto.randomBytes(2).toString('hex');
     }
-	return code;
+	return code.toUpperCase();
 }
 
 // // SSL cert info for https
@@ -54,7 +52,7 @@ const server = http.createServer(function(request, response) {
 // Web socket server created for the server
 const wss = new WebSocket.Server({ server });
 
-// Install handler for a new socket (ws) connecting to the wever
+// Install handler for a new socket (ws) connecting to the server
 wss.on('connection', function connection(ws, req) {
 	console.log("Established connection with IP " + req.socket.remoteAddress);
 
@@ -67,8 +65,9 @@ wss.on('connection', function connection(ws, req) {
         // Intialize client
         if(json.type == 1){
 
-            let code = json.params.gameCode;
-            let name = json.params.username;
+            // Cast code to upper case to eliminate errors
+            let code = json.gameCode.toUpperCase();
+            let name = json.userName;
 
             // One or more inital client inputs is empty
             if(code == "" || name == ""){
@@ -79,11 +78,30 @@ wss.on('connection', function connection(ws, req) {
             }
             // Game code belongs to a host
             else if(codeToHost.has(code)){
-                console.log("Valid Game code from client. Creating WebClient class");
-                let message = {type: 1, params: {gameCode: code, username: name}};
-                ws.send(JSON.stringify(message));
-                client = new WebClient(ws, codeToHost.get(code), name);
-                codeToHost.get(code).addClient(client);
+
+                // Check if username is used by the host already
+                if(codeToHost.get(code).checkDuplicateUsername(name)){
+                    console.log("Client Error: Username taken");
+                    let message = generateErrorMessage(103);
+                    ws.send(JSON.stringify(message));
+                    ws.terminate();
+                }
+                // Check if game has already started
+                else if(codeToHost.get(code).inProgress){
+                    console.log("Client Error: Game started");
+                    let message = generateErrorMessage(104);
+                    ws.send(JSON.stringify(message));
+                    ws.terminate();
+                }
+                // Successfully create new client, notify the client, and attach
+                // it to the host.
+                else{
+                    console.log("Creating new client: ", name);
+                    let message = {type: 1, gameCode: code, userName: name};
+                    ws.send(JSON.stringify(message));
+                    client = new WebClient(ws, codeToHost.get(code), name);
+                    codeToHost.get(code).addClient(client);
+                }
             }
             // Game code does not exist
             else {
@@ -100,7 +118,7 @@ wss.on('connection', function connection(ws, req) {
             host = new UnityHost(ws, code);
             codeToHost.set(code,host);
 
-            let message = {type: 2, params: {gameCode: code}};
+            let message = {type: 2, gameCode: code};
             ws.send(JSON.stringify(message));
 
             console.log("Created new host with game code: ", code);
@@ -111,6 +129,7 @@ wss.on('connection', function connection(ws, req) {
             console.log("General Error: Attempted non-initialization comm");
             let message = generateErrorMessage(001);
             ws.send(JSON.stringify(message));
+            ws.terminate();
         }
 
     // This is very VERY important. This handler will only ever run once, on
@@ -125,7 +144,7 @@ wss.on('connection', function connection(ws, req) {
     });
 });
 
-// Allow the server to accept new connections over port 8000
+// Allow the server to accept new connections over port 80
 // Original value for AWS server was 443
 server.listen(80);
 console.log("Server Info: ", server.address());

@@ -5,7 +5,7 @@
 // 	Web client:
 // 		0	Successfully connected to game session
 // 		1	Invalid game ID input
-// 		2	Invalid data format (username + "," + gameID)
+// 		2	Invalid data format (userName + "," + gameID)
 // 		3	Invalid fields (empty)
 
 

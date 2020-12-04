@@ -1,9 +1,7 @@
 Error Message
 {
     "type": -1,
-    "params": {
-        "errNum": ERROR_NUMBER
-    }
+    "errNum": ERROR_NUMBER
 }
 
 Blank
@@ -14,24 +12,49 @@ Blank
 Inialize Client / Set Username
 {
     "type": 1,
-    "params": {
-        "gameCode": CODE,
-        "username": USERNAME
-    }
+    "gameCode": CODE,
+    "userName": USERNAME
 }
 
 Intialize Host
 {
     "type": 2,
-    "params": {
-        "gameCode": CODE
-    }
+    "gameCode": CODE
 }
 
 Client Disconnect
 {
     "type": 3,
-    "params": {
-        "username": USERNAME
-    }
+    "userName": USERNAME
+}
+
+Start Game
+{
+    "type": 4,
+    "q_num": (number of the question),
+    "q_text": (text of the question)
+}
+
+Client button click (OPTION is one of 'A', 'B', 'C', 'D')
+{
+    "type": 5,
+    "data": OPTION,
+    "userName": USERNAME
+}
+
+Host change question
+{
+    "type": 5,
+    "q_num": (number of the question),
+    "q_text": (text of the question)
+}
+
+Host ends round
+{
+    "type": 6
+}
+
+Host ends game
+{
+    "type": 7
 }

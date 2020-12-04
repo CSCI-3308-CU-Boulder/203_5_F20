@@ -1,4 +1,4 @@
-const NAME_OF_SERVER_FILE = 'demo_server'
+const NAME_OF_SERVER_FILE = 'http_server'
 
 const WebSocket = require('ws');
 const Server= require('./' + NAME_OF_SERVER_FILE);
@@ -8,15 +8,31 @@ class UnityHost {
         this.ws = hostWS;
         this.code = code;
         this.clients = [];
+        this.inProgress = false;
 
-        // Install handler for when the server receives a message from host
-        this.ws.addEventListener('message', this.receiveMessage);
+        let tempHost = this;
+
+        // Forward subsequent messages to clients
+        this.ws.addEventListener('message', function(messageObject){
+            let realData = JSON.parse(messageObject.data);
+
+            if(realData.type == 4){
+                // Game start type from Host
+                tempHost.inProgress = true;
+            } else if(realData.type == 6){
+                // Game end type from Host
+                tempHost.inProgress = false;
+            }
+            
+            tempHost.clients.forEach(client => {
+                client.ws.send(messageObject.data);
+            }); 
+        });
 
         // When host connection closes, close all client connections and remove
         // host from the map in the server
-        let tempHost = this;
         this.ws.on('close', function closed(code, reason) {
-            console.log("Host "+ tempHost.code + "connection terminated. Terminating client connections.")
+            console.log("Host "+ tempHost.code + " connection terminated. Terminating client connections.")
             tempHost.clients.forEach(client => {
                 let message = Server.generateErrorMessage(102);
                 client.ws.send(JSON.stringify(message));
@@ -37,7 +53,7 @@ class UnityHost {
     addClient(newClient){
         console.log("Host " + this.code + " adding new client object: " + newClient.name);
 
-        let message = {type: 1, params: {username: newClient.name}};
+        let message = {type: 1, userName: newClient.name};
         this.ws.send(JSON.stringify(message));
         
         // Send old clients the new client and send the new client all the old
@@ -46,15 +62,27 @@ class UnityHost {
         // NEED TO KNOW ABOUT EACH OTHER
         // =====================================================================
         this.clients.forEach(oldClient => {
-            let oldMessage = {type: 2, params: {username: newClient.name}};
+            let oldMessage = {type: 1, userName: newClient.name};
             oldClient.ws.send(JSON.stringify(oldMessage))
 
-            let newMessage = {type: 2, params: {username: oldClient.name}};
+            let newMessage = {type: 1, userName: oldClient.name};
             newClient.ws.send(JSON.stringify(newMessage));
         }); 
         // =====================================================================
 
         this.clients.push(newClient);
+    }
+
+    // Check if a host already has a client with a given name
+    checkDuplicateUsername(name){
+        let ret = false;
+        this.clients.forEach(client => {
+            if(client.name === name){
+                ret = true;
+                return;
+            }   
+        }); 
+        return ret;
     }
 
     // Called by a client on close
@@ -64,7 +92,7 @@ class UnityHost {
 
         this.clients.splice(this.clients.indexOf(oldClient), 1);
 
-        let message = {type: 3, params: {username: oldClient.name}};
+        let message = {type: 3, userName: oldClient.name};
         this.ws.send(JSON.stringify(message));
 
         // Send other clients the removal of the old client
@@ -75,12 +103,6 @@ class UnityHost {
             client.ws.send(JSON.stringify(message))
         }); 
         // =====================================================================
-    }
-
-    receiveMessage(messageObject){
-        let realData = JSON.parse(messageObject.data);
-        console.log("Data from Host: ", realData);
-        //this.host.send(realData);
     }
 }
 

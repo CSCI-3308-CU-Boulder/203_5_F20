@@ -1,0 +1,119 @@
+commit 164ceb7ac5afc3acd9402be83c22568e32f9d753
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Wed Nov 4 16:48:10 2020 -0700
+
+    Changed variable name for JSON consistency
+--
+commit 9c69748a52b501b999dd9bf288feb28e68059ed6
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Wed Nov 4 16:34:32 2020 -0700
+
+    Changed the data being passed in type 5 JSON to int
+--
+commit 1a248f027b58230e63df2f2e6cdea89cb3b291d5
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Wed Oct 28 16:41:40 2020 -0600
+
+    Changed the formatting of the README
+--
+commit 16e444807b0092731255c1c11d997d5395daa10c
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Wed Oct 28 16:39:03 2020 -0600
+
+    Added a README for running the server on AWS and cleaned up repo
+--
+Merge: 24f8529 306ce12
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Wed Oct 14 15:03:04 2020 -0600
+
+    Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_5_F20
+--
+commit 24f8529e9688b4679ab720e08379e863bf41cb50
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Wed Oct 14 15:02:48 2020 -0600
+
+    Changed the structure of JSON to not be nested
+--
+Merge: 635930b 4e4fc14
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Sun Oct 11 12:43:21 2020 -0600
+
+    Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_5_F20
+--
+commit 635930b193c345d2349f86600f9ff4287fe8dab2
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Sun Oct 11 12:43:05 2020 -0600
+
+    added an http server for JSON debugging
+--
+Merge: 2988add d3055b1
+Author: conorsim <60359299+conorsim@users.noreply.github.com>
+Date:   Sun Oct 11 12:32:43 2020 -0600
+
+    Merge pull request #7 from CSCI-3308-CU-Boulder/WebsiteWebsocket
+--
+commit 2988add53bbdbec2e37647373837ffd7d801f143
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Wed Sep 23 18:42:38 2020 -0600
+
+    renamed milestone 2
+--
+Merge: 4a5522e 57141c8
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Wed Sep 23 18:40:38 2020 -0600
+
+    Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_5_F20
+--
+commit 4a5522e1c74cf2ae9eec7ce82fd7303f09cd5da2
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Wed Sep 23 18:40:19 2020 -0600
+
+    project milestone 2
+--
+Merge: 9b5036c 46e7b27
+Author: conorsim <60359299+conorsim@users.noreply.github.com>
+Date:   Thu Sep 17 18:49:08 2020 -0600
+
+    Merge pull request #4 from CSCI-3308-CU-Boulder/conor
+--
+Merge: ad1a747 9b5036c
+Author: conorsim <60359299+conorsim@users.noreply.github.com>
+Date:   Thu Sep 17 18:48:59 2020 -0600
+
+    Merge branch 'master' into conor
+--
+commit ad1a747c0b15997eaa881a3fc39caa631145b11b
+Author: conorsim <60359299+conorsim@users.noreply.github.com>
+Date:   Thu Sep 17 18:45:54 2020 -0600
+
+    Added a line at the end
+--
+commit 7f7afe79ac828e098528a2ad4ebe050d44ce9817
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Thu Sep 17 18:29:47 2020 -0600
+
+    added a header
+--
+Merge: a147b11 565fb2d
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Thu Sep 17 18:27:41 2020 -0600
+
+    Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_5_F20
+--
+Merge: bb468ec 16044a6
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Thu Sep 17 18:27:11 2020 -0600
+
+    Merge branch 'master' of github.com:CSCI-3308-CU-Boulder/203_5_F20
+--
+Merge: 040d368 f391c66
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Thu Sep 17 18:24:09 2020 -0600
+
+    test
+--
+commit 040d368743714701e8f038677e168fe713ee6102
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Thu Sep 17 18:05:13 2020 -0600
+
+    edited the README

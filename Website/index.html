@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="style.css">
-<script src="main.js"></script> 
-<body>
+<script src="main.js"></script>
+<body onload="enterListeners();">
 
     <img id="help-button" src="SVG/help-circle-outline.svg" alt="(?)" onclick="display_help()">
     </img>
@@ -13,7 +13,8 @@
     <!--Overlay content-->
     <div id="help-overlay" onclick="hide_help()">
         <div id="help-container">
-            Hello, this is some helpful text!:)
+            To enter a game, please type in your name in the "My name:" field and a valid game code in the "Game code:" field. Make sure
+            that you don't use the same name as someone else. Have fun:) --TTGames
         </div>
     </div>
 
@@ -21,7 +22,7 @@
 
         <!--Main content-->
         <div id="login-page">
-            <div id="top-logo">
+            <div class="top-logo">
                 TTGames
             </div>
             <div id="user-input">
@@ -38,23 +39,49 @@
             </div>
         </div>
 
+        <!--Lobby content-->
         <div id="lobby-page">
-            <div id="top-logo">
+            <div class="top-logo">
                 TTGames
             </div>
-            <a class="btn" role="button" onclick="test()">
-                Test
-            </a>
             <div id="lobby-info">
+                <div id="server-send">
+                    <input type="text" id="server-input">
+                    <button type="button" id="server-button" onclick="server_send()">Send</button>
+                </div>
                 <div id="lobby-name">
-                    Connected to lobby <span id="lobby-id">ID</span>:
+                    Connected to lobby <span id="lobby-id">0xID</span>:
                 </div>
                 <div id="lobby-players">
+                </div>
+                <hr class="waiting">
+                <div class="waiting">
+                    Waiting for game to start
+                    <img src="" id="waiting-gif">
                 </div>
             </div>
         </div>
 
-
+        <!--Game content-->
+        <div id="game-page">
+            <div class="top-logo">
+                TTGames
+            </div>
+            <div id="game-info">
+                <div class="game-username">
+                    Name: <span id="game-username-name"></span>
+                </div>
+                <div id="game-question">
+                    Question <span id="question-num">1</span>: <span id="question-text">What is the name of the dog in the loading screen?</span>
+                </div>
+                <div id="game-buttons">
+                    <button class="game-button" id="gb1" onclick='game_select(0)'>A</button>
+                    <button class="game-button" id="gb2" onclick='game_select(1)'>B</button>
+                    <button class="game-button" id="gb3" onclick='game_select(2)'>C</button>
+                    <button class="game-button" id="gb4" onclick='game_select(3)'>D</button>
+                </div>
+            </div>
+        </div>
 
     </div>
 
