@@ -57,6 +57,6 @@ Integration Testing: We tested our Unity/Browser integration by hosting and join
 
 Load Testing: We tested the load capacity of the amount of players able to join a game. Between our team members, we had 30-40 players join a single game instance and input their answers to questions. This was plenty of capacity for the intended use of the game.
 
-User Acceptance Testing: We hosted a game for classmates to join and they were able to successfully submit their answers to questions and enjoyed playing the game.
+User Acceptance Testing: We hosted a game for classmates to join and they were able to successfully submit their answers to questions and enjoyed playing the game from all around the country and the world.
 
 
