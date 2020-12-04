@@ -1,3 +1,21 @@
+commit d23364821e3f9e780ce705a91ef8a28e70393046
+Author: James Ryan <56053444+jary7635@users.noreply.github.com>
+Date:   Sat Nov 7 12:39:29 2020 -0700
+
+    Random Questions and Answers Generated
+--
+commit b1e0634989360c18be50dd700e4fbac4cacd9db4
+Author: James Ryan <56053444+jary7635@users.noreply.github.com>
+Date:   Wed Nov 4 15:01:05 2020 -0700
+
+    Working Timer, File IO in progress
+--
+commit 87e8ab02be1c843d000a99cf39dea34809b3b029
+Author: James Ryan <56053444+jary7635@users.noreply.github.com>
+Date:   Tue Oct 27 23:12:58 2020 -0600
+
+    Basic Format for Multiple Choice Questions
+--
 commit 3be27666f5a992a5b415d14aa93f77af6d083f83
 Author: James Ryan <56053444+jary7635@users.noreply.github.com>
 Date:   Thu Oct 15 19:25:29 2020 -0600

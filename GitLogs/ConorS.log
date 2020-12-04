@@ -4,6 +4,12 @@ Date:   Wed Nov 4 16:48:10 2020 -0700
 
     Changed variable name for JSON consistency
 --
+commit 19fcd6e2be80d94a089066ac56c1a56c4c8621df
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Wed Nov 4 16:44:37 2020 -0700
+
+    Edited Message.cs to fit new JSON standard
+--
 commit 9c69748a52b501b999dd9bf288feb28e68059ed6
 Author: conorsim <bato.simmons@gmail.com>
 Date:   Wed Nov 4 16:34:32 2020 -0700
@@ -22,6 +28,18 @@ Date:   Wed Oct 28 16:39:03 2020 -0600
 
     Added a README for running the server on AWS and cleaned up repo
 --
+commit 92dbc0d09383caa16aac7a792e0f9d82d15f8a70
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Wed Oct 14 20:27:02 2020 -0600
+
+    scripts have been modified to listen for incoming messages on every frame
+--
+commit 17fe65dbce9dc9456783beceb8a8b2a9ae0d2644
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Wed Oct 14 16:49:22 2020 -0600
+
+    added some logic to check for message types in MessageIn()
+--
 Merge: 24f8529 306ce12
 Author: conorsim <bato.simmons@gmail.com>
 Date:   Wed Oct 14 15:03:04 2020 -0600
@@ -33,6 +51,24 @@ Author: conorsim <bato.simmons@gmail.com>
 Date:   Wed Oct 14 15:02:48 2020 -0600
 
     Changed the structure of JSON to not be nested
+--
+commit b1845d22465e8bc151a49a85a8842761e41cbb85
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Mon Oct 12 20:58:46 2020 -0600
+
+    Can send and receive game code from server
+--
+commit 31d95ef29f87280299d239b6674be7e0248c704a
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Sun Oct 11 17:35:13 2020 -0600
+
+    created Message class for passing JSON data, made changed to ws scripts
+--
+commit 49804fc67f86a94087cba78a8d4b68d033c9b936
+Author: conorsim <bato.simmons@gmail.com>
+Date:   Sun Oct 11 12:50:04 2020 -0600
+
+    Added working scripts for websocket connection
 --
 Merge: 635930b 4e4fc14
 Author: conorsim <bato.simmons@gmail.com>

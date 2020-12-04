@@ -1,3 +1,27 @@
+Merge: af57075 0b14de0
+Author: Alexey Yermakov <42810242+yyexela@users.noreply.github.com>
+Date:   Thu Dec 3 18:58:41 2020 -0700
+
+    Merge pull request #11 from CSCI-3308-CU-Boulder/UnityDemo
+--
+commit 0b14de0823813a2c74b95d075f2875653794fb50
+Author: yyexela <yyexela@disroot.org>
+Date:   Thu Dec 3 18:57:00 2020 -0700
+
+    Updated with master branch
+--
+commit af5707538cd0f2677b3d6b7626558314c8683173
+Author: yyexela <yyexela@disroot.org>
+Date:   Thu Dec 3 18:40:34 2020 -0700
+
+    Fixed conor log
+--
+commit ea54ec7c033a0e9ddd62e5adeccf470e7aae5969
+Author: yyexela <yyexela@disroot.org>
+Date:   Thu Dec 3 18:39:49 2020 -0700
+
+    Git Commit Info
+--
 commit a347cc845f8fe2788086efc101c24507a61551b1
 Author: Alexey Yermakov <42810242+yyexela@users.noreply.github.com>
 Date:   Thu Dec 3 18:34:40 2020 -0700
