@@ -48,9 +48,15 @@ After acquiring the game executeable either from building the game itself or by 
 
 * `Website`
 
-  * Contains the full website source code. When the github pages site is accessed, the index.html in the root directory redirects to this directory.
+  * Contains the full website source code.
 
 
 ## Testing Methodology
 
-We used manual testing for this project primarily due to the fact that the main issues would occur in integration. We performed QA testing by having users try to break the applications. We also performed load testing by having up to 40 unique players join a single lobby at one time.
+Integration Testing: We tested our Unity/Browser integration by hosting and joining games. We ensured that the correct signals were being sent at the correct times, that players could not send signals after a question timer runs out, and that games ended correctly.
+
+Load Testing: We tested the load capacity of the amount of players able to join a game. Between our team members, we had 30-40 players join a single game instance and input their answers to questions. This was plenty of capacity for the intended use of the game.
+
+User Acceptance Testing: We hosted a game for classmates to join and they were able to successfully submit their answers to questions and enjoyed playing the game.
+
+
