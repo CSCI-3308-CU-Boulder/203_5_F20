@@ -48,7 +48,7 @@ After acquiring the game executeable either from building the game itself or by 
 
 * `Website`
 
-  * Contains the full website source code.
+  * Contains the full website source code. When the github pages site is accessed, the index.html in the root directory redirects to this directory.
 
 
 ## Testing Methodology
