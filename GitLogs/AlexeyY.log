@@ -1,0 +1,293 @@
+commit a347cc845f8fe2788086efc101c24507a61551b1
+Author: Alexey Yermakov <42810242+yyexela@users.noreply.github.com>
+Date:   Thu Dec 3 18:34:40 2020 -0700
+
+    Update README.md
+--
+commit 07119f74222b1bf0236649a1286904b390cc772b
+Author: yyexela <yyexela@disroot.org>
+Date:   Thu Dec 3 18:10:12 2020 -0700
+
+    Updated milestone 6
+--
+Merge: 3cfa76d d8b1b83
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Dec 2 16:33:43 2020 -0700
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_5_F20
+--
+commit 3cfa76de8dc0cc39c911de412c584722be667f32
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Dec 2 16:33:29 2020 -0700
+
+    Message format update and comments (website)
+--
+commit 72bfe502d6d50b413cd79f5b7601c2dd31eac6eb
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Dec 2 16:32:13 2020 -0700
+
+    End round and end game updated for server
+--
+commit da4f54594ddb52372c0166818c5d46956e6489eb
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Nov 18 16:33:21 2020 -0700
+
+    Made the random gif not show the dog on load
+--
+commit 66f480647ac1206267bdc77129a8e60345848f0b
+Author: yyexela <yyexela@disroot.org>
+Date:   Mon Nov 16 11:58:16 2020 -0700
+
+    Switched server from localhost to the AWS one (oops)
+--
+commit 5514f933e6c67ed6eb7ced401639715c11a3539f
+Author: yyexela <yyexela@disroot.org>
+Date:   Mon Nov 16 11:57:44 2020 -0700
+
+    Updated Website:
+--
+commit 75675c7dcc942ee4df58bb2a8149ed396acb4be7
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Nov 11 17:57:17 2020 -0700
+
+    Added project milestone 5
+--
+commit d795689c1685de331451261f5c31ddc1b88e3c19
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Nov 11 17:23:24 2020 -0700
+
+    Fixed issues where JSON message for userName was username
+--
+commit 3f4fedf0a942c79ad98bd0555e7144b5276c9937
+Author: yyexela <yyexela@disroot.org>
+Date:   Thu Nov 5 18:19:33 2020 -0700
+
+    Removed www. from redirect in index.html
+--
+commit 1c294b02b066c848d82043722192eec067a8bd8c
+Author: yyexela <yyexela@disroot.org>
+Date:   Thu Nov 5 18:10:24 2020 -0700
+
+    Added main page redirection
+--
+commit e87b77ecea197f02a86c89bc3e59f790f3426879
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Nov 4 17:39:10 2020 -0700
+
+    Fixed website bug
+--
+commit 60858062d0d89c6ab75041696be5b0d54dd71e77
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Oct 28 18:18:16 2020 -0600
+
+    Fixed bug where username wasn't correct when submitting an answer
+--
+Merge: 2e6edec 1a248f0
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Oct 28 17:05:28 2020 -0600
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_5_F20
+--
+commit 2e6edece971822de18cd876a7773ec0403b06654
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Oct 28 17:05:20 2020 -0600
+
+    Website: Button disabled when double-clicking submit
+--
+commit b1843c2c815d8ec44f3ef0d7487ce329e9d1789d
+Author: yyexela <yyexela@disroot.org>
+Date:   Tue Oct 27 19:24:42 2020 -0600
+
+    Finished added website-side game code
+--
+Merge: 7cc069f d69774c
+Author: yyexela <yyexela@disroot.org>
+Date:   Tue Oct 27 18:13:47 2020 -0600
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_5_F20
+--
+commit 7cc069fc94b175070ce5b530562a2814d6220c3a
+Author: yyexela <yyexela@disroot.org>
+Date:   Tue Oct 27 18:13:44 2020 -0600
+
+    main.js added type 4 (start game) functionality
+--
+Merge: 174abad 3360ec9
+Author: Alexey Yermakov <42810242+yyexela@users.noreply.github.com>
+Date:   Tue Oct 27 18:13:13 2020 -0600
+
+    Merge pull request #10 from CSCI-3308-CU-Boulder/ScopeFix
+--
+Merge: 094dbfe 9c62800
+Author: Alexey Yermakov <42810242+yyexela@users.noreply.github.com>
+Date:   Tue Oct 27 17:56:10 2020 -0600
+
+    Merge pull request #9 from CSCI-3308-CU-Boulder/WebsiteUpdates
+--
+commit 9c62800cf2d0cf912f95de1f8830a3b7da8c5cbc
+Author: yyexela <yyexela@disroot.org>
+Date:   Tue Oct 27 17:23:27 2020 -0600
+
+    Updated some website files, added gif
+--
+Merge: 1a395d7 8b376d6
+Author: Alexey Yermakov <42810242+yyexela@users.noreply.github.com>
+Date:   Tue Oct 27 15:45:00 2020 -0600
+
+    Merge pull request #8 from CSCI-3308-CU-Boulder/ServerUpdates
+--
+commit 1a395d77d7aa2797838e7e9e63096635af208d0a
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Oct 21 18:53:59 2020 -0600
+
+    Made default game button border rounded
+--
+commit 4a6f595cecc974158f32e0ef378ecfb256ebc865
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Oct 21 18:42:54 2020 -0600
+
+    Added static game page
+--
+commit c19dfd5dc57914551dc2061fdd3af31333d13d69
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Oct 21 17:46:48 2020 -0600
+
+    Further refined website mobile-friendliness
+--
+commit 2244f3c8b02be0bd8b7c9fb5b5fb1e646137e007
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Oct 21 17:28:06 2020 -0600
+
+    Made website more mobile-friendly via CSS
+--
+commit 306ce128c7d14ef33753465f76e637f1d481e3db
+Author: yyexela <yyexela@disroot.org>
+Date:   Tue Oct 13 22:32:44 2020 -0600
+
+    Updated website for server http
+--
+commit 70e35d85830f62f13cfb631c61e64f276f89dedf
+Author: yyexela <yyexela@disroot.org>
+Date:   Tue Oct 13 22:09:43 2020 -0600
+
+    Some comment grammar fixes, added socket termination upon general error for the server
+--
+commit 62dcf076048401efb57ce3c50fcf32e7921fb3a6
+Author: yyexela <yyexela@disroot.org>
+Date:   Tue Oct 13 21:45:19 2020 -0600
+
+    Renamed demo_server.js to https_server.js
+--
+commit 0288be6a000485b9421afc665d30346b2cc1369c
+Author: yyexela <yyexela@disroot.org>
+Date:   Thu Oct 8 12:04:57 2020 -0600
+
+    Added website-side code for connecting to a lobby
+--
+commit 77feb88700f2e5cca5ec90fb69a91513a602bfd5
+Author: yyexela <yyexela@disroot.org>
+Date:   Sun Oct 4 16:04:34 2020 -0600
+
+    Updated main.js to work with https server
+--
+commit 3e2d0391325c88ad9e2d70b87ca7a173cf39b89e
+Author: yyexela <yyexela@disroot.org>
+Date:   Sun Oct 4 15:09:07 2020 -0600
+
+    Added website files for websocket communication
+--
+commit a24d694165d4cb383dc1e5e4fa8bb882c9f320ad
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Sep 23 11:43:26 2020 -0600
+
+    Made style look normal (good colors) and is responsive
+--
+Merge: aeb1b2a 2be3229
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Sep 23 11:26:59 2020 -0600
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_5_F20 into StaticWebsite
+--
+Merge: 9c9f21a f137742
+Author: Alexey Yermakov <42810242+yyexela@users.noreply.github.com>
+Date:   Thu Sep 17 18:31:33 2020 -0600
+
+    Merge pull request #1 from CSCI-3308-CU-Boulder/jimmy-branch
+--
+Merge: ab807be 9c9f21a
+Author: Alexey Yermakov <42810242+yyexela@users.noreply.github.com>
+Date:   Thu Sep 17 18:31:04 2020 -0600
+
+    Merge branch 'master' into jimmy-branch
+--
+commit ab807be7fc29f6c89a94a31d2e3b4b60c5cd9430
+Author: Alexey Yermakov <42810242+yyexela@users.noreply.github.com>
+Date:   Thu Sep 17 18:29:35 2020 -0600
+
+    Update README.md
+--
+commit 67f2e9ce138b6bfc1f2e5e87fa2539ce4c9c4a5f
+Author: Alexey Y <yyexela@disroot.org>
+Date:   Thu Sep 17 18:24:51 2020 -0600
+
+    Necessary lab 4 stuff
+--
+Merge: 7c30ee7 ccfb6f0
+Author: Alexey Y <yyexela@disroot.org>
+Date:   Thu Sep 17 18:22:53 2020 -0600
+
+    Merge conflict resolved
+--
+commit 7c30ee703ef8674ef0c54b13a97307dd78ebe407
+Author: Alexey Y <yyexela@disroot.org>
+Date:   Thu Sep 17 18:21:28 2020 -0600
+
+    Added middle initial
+--
+commit ccfb6f04ed58c6dd673f4947033672617ecc361e
+Author: Alexey Yermakov <42810242+yyexela@users.noreply.github.com>
+Date:   Thu Sep 17 18:20:25 2020 -0600
+
+    Update README.md
+--
+Merge: c06d520 61083f1
+Author: Alexey Y <yyexela@disroot.org>
+Date:   Thu Sep 17 18:18:26 2020 -0600
+
+    Merge branch 'master' of https://github.com/CSCI-3308-CU-Boulder/203_5_F20
+--
+commit c06d520212d8dbab53555758bc602543ac3dc9c7
+Author: Alexey Y <yyexela@disroot.org>
+Date:   Thu Sep 17 18:18:18 2020 -0600
+
+    Swapped names alphabetically
+--
+commit f391c66e25a6f76d54839bd198a15d8d7d494a45
+Author: Alexey Y <yyexela@disroot.org>
+Date:   Thu Sep 17 18:04:20 2020 -0600
+
+    Added name to README.md
+--
+commit aeb1b2ac5f786e6c6b8f6fa9c2202a26298b7f3c
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Sep 16 19:15:38 2020 -0600
+
+    Added static website files
+--
+commit f84bad6b66dc51aa7b37ab1fcd4eb6151c3b03ce
+Author: yyexela <yyexela@disroot.org>
+Date:   Thu Sep 10 19:02:42 2020 -0600
+
+    Updated Project Milestone PDF w/ github and jira links
+--
+commit f8e0d3c0761cee85a336bcc528ddfa59ee74d11f
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Sep 9 20:07:23 2020 -0600
+
+    Changed file extension to .pdf
+--
+commit 3fcbd99f96deb0cc075213e4ca1681b951bd789c
+Author: yyexela <yyexela@disroot.org>
+Date:   Wed Sep 9 20:06:16 2020 -0600
+
+    Initial commit, added Lab2 and Milestone1
