@@ -16,7 +16,7 @@ This project is a multiplayer online game that see people connecting to a host e
 
 ### Client:
 
-Go to `ttgames.us` and join an existing game.
+Go to http://ttgames.us/ and fill in the forms: choose a nickname, and type in the game code displayed on the host's screen. This should bring you to a waiting room with the rest of the players until the host starts up the game! Once the game starts, a quote will be displayed with 4 possible answers as to who said it. Make your vote by selecting on your browser. If you got it right, you get a point! Once the host ends the game, the player with the most points wins!
 
 ### Host:
 
@@ -26,13 +26,7 @@ TBD
 
 #### Running the game
 
-Run the executable made from building the game.
-
-## How do I play?
-
-On the host side,
-
-On the player side, go to http://ttgames.us/ and fill in the forms: choose a nickname, and type in the game code displayed on the host's screen. This should bring you to a waiting room with the rest of the players until the host starts uo the game! Once the game starts, a quote will be displayed with 4 possible answers as to who said it. Make your vote by selecting on your browser. If you got it right, you get a point! Once the host ends the game, the player with the most points wins!
+After acquiring the game executeable either from building the game itself or by downloading and extracting the .zip file in this repo, simply run the .exe file named "Quote Game". When the game is running, you simply have to create a lobby, wait for players to join (you can play too in a browser or on a phone!), and start the game! At any point, the host can choose to end the game, displaying the top 3 players and their scores.
 
 ## Git Repository Structure
 
