@@ -25,9 +25,9 @@ Go to http://ttgames.us/ in any web browser and fill in the forms: choose a nick
 
 First, Unity must be installed on the host machine. Create a new project and point to "Unity/QuoteGame" in the repository. Once this folder is pointed to, open that project. Under the "Project" tab in Unity, select "Assets/Scenes." Click on the "Game Start" scene and then open the scene. Now, make a directory on your system entitled "build" inside the Unity project directory. In Unity, click File -> Build and Run and select the "build" folder as the destination. This will compile the game and launch it on your system.
 
-#### Running the game
+#### Hosting the game
 
-After acquiring the game executeable either from building the game itself or by downloading and extracting the .zip file in this repo, simply run the .exe file named "Quote Game". When the game is running, you simply have to create a lobby, wait for players to join (you can play too in a browser or on a phone!), and start the game! At any point, the host can choose to end the game, displaying the top 3 players and their scores.
+Once the game is running, you simply have to create a lobby, wait for players to join (you can play too in a browser or on a phone!), and start the game! At any point, the host can choose to end the game, displaying the top 3 players and their scores.
 
 ## Git Repository Structure
 
