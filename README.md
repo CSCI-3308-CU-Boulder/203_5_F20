@@ -15,6 +15,8 @@ This project is a multiplayer online game that see people connecting to a host e
 
 ## How do I play?
 
+(Note: as of April 2 2021, the AWS server was shut down since the free trial for the EC2 instance ended)
+
 ### Client:
 
 Go to http://ttgames.us/ in any web browser and fill in the forms: choose a nickname, and type in the game code displayed on the host's screen. This should bring you to a waiting room with the rest of the players until the host starts up the game! Once the game starts, a quote will be displayed with 4 possible answers as to who said it. Make your vote by selecting on your browser. If you got it right, you get a point! Once the host ends the game, the player with the most points wins!
